@@ -2,3 +2,41 @@
  * Custom code goes here.
  * A template should always ship with an empty custom.css
  */
+ @font-face {
+  font-family: 'bebasregular';
+  src: url('bebas-webfont.woff2') format('woff2'),
+        url('bebas-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bebas_neuebold';
+  src: url('bebasneue_bold-webfont.woff2') format('woff2'),
+        url('bebasneue_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bebas_neuebook';
+  src: url('bebasneue_book-webfont.woff2') format('woff2'),
+        url('bebasneue_book-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.row {
+  margin-right: 0;
+  margin-right: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#wrapper {
+  background-image: url("../img/background-fisherman.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
