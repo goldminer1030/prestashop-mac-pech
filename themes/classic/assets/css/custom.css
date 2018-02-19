@@ -35,8 +35,73 @@
   text-align: center;
 }
 
-#wrapper {
+body {
   background-image: url("../img/background-fisherman.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+body, html {
+  height: auto;
+}
+
+#header,
+#wrapper {
+  background: transparent;
+}
+
+#header .header-nav {
+  border-bottom-color: transparent;
+}
+
+#wrapper {
+  box-shadow: none;
+}
+
+@media (min-width: 576px) {
+  .page-wrapper {
+    width: 540px;
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .page-wrapper {
+    width: 720px;
+    max-width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .page-wrapper {
+    width: 960px;
+    max-width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .page-wrapper {
+    width: 1140px;
+    max-width: 100%;
+  }
+}
+@media (min-width: 1316px) {
+  .page-wrapper {
+    width: 1256px;
+    max-width: 100%;
+  }
+}
+.page-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #fbfbfb;
+}
+.page-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer-container {
+  box-shadow: none;
 }
