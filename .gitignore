@@ -30,3 +30,6 @@ admin-dev/import/
 download/
 /img/*
 upload/
+
+app/cache/**
+!app/cache/**/*.foo
