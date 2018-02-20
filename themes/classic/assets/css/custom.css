@@ -39,6 +39,7 @@ body {
   background-image: url("../img/background-fisherman.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Open Sans';
 }
 
 body, html {
@@ -51,7 +52,9 @@ body, html {
 }
 
 #header .header-nav {
+  margin-bottom: 0;
   border-bottom-color: transparent;
+  border-bottom: none;
 }
 
 #wrapper {
@@ -94,7 +97,6 @@ body, html {
   margin-bottom: 50px;
   padding-left: 15px;
   padding-right: 15px;
-  background-color: #fbfbfb;
 }
 .page-wrapper:after {
   content: "";
@@ -104,4 +106,66 @@ body, html {
 
 .footer-container {
   box-shadow: none;
+}
+
+.bg-main {
+  background-color: #fbfbfb;
+}
+
+.top-title {
+  max-width: 310px;
+  margin: auto;
+  padding-top: 45px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #007f00;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.top-gap-sm {
+  margin-top: 30px;
+}
+
+.header-contact-wrapper {
+  margin-bottom: 3px;
+}
+.header-contact-wrapper .header-contact-icon {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.header-contact-wrapper .header-contact-detail {
+  display: inline-block;
+  width: calc(100% - 35px);
+  vertical-align: middle;
+  font-size: 13px;
+  letter-spacing: 1.3px;
+  line-height: 14px;
+  text-align: left;
+  text-transform: uppercase;
+  color: #605f5f;
+}
+.header-contact-wrapper .header-contact-detail a,
+.header-contact-wrapper .header-contact-detail strong {
+  font-weight: bold;
+}
+
+.sponsor-bar {
+  padding-top: 19px;
+}
+.sponsor-bar .sponsor-bitmap {
+  margin: 5px;
+}
+
+.featured-products .products-section-title {
+  font-family: 'bebas_neuebold';
+  font-size: 52px;
+  letter-spacing: 2.6px;
+  text-align: center;
+  color: #1d4a42;
 }
