@@ -328,3 +328,13 @@ a:hover {
 .block_newsletter form .btn-primary {
   display: none;
 }
+
+.footer-copyright {
+  margin-bottom: 40px;
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  color: #1d4a42;
+}
+.payment {
+  margin: 15px;
+}

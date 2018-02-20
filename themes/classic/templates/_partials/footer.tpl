@@ -42,12 +42,21 @@
       {/block}
     </div>
     <div class="row">
+      <div class="col-xs-12 text-center">
+        <div class="footer-payment-wrapper">
+          <img class="payment" src="{$urls.img_url}payment-paypal.png" alt="paypal">
+          <img class="payment" src="{$urls.img_url}payment-visa.png" alt="visa">
+          <img class="payment" src="{$urls.img_url}payment-mastercard.png" alt="master card">
+          <img class="payment" src="{$urls.img_url}payment-skrill.png" alt="skrill">
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-12">
-        <p class="text-sm-center">
+        <p class="text-sm-center footer-copyright">
           {block name='copyright_link'}
-            <a class="_blank" href="http://www.prestashop.com" target="_blank">
-              {l s='%copyright% %year% - Ecommerce software by %prestashop%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
-            </a>
+            {l s='%copyright% Mac Pêche - Création ' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
+            <a class="_blank" href="http://www.freshcore.fr" target="_blank">www.freshcore.fr</a>
           {/block}
         </p>
       </div>
