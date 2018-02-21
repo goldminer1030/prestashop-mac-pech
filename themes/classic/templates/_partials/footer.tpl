@@ -29,6 +29,9 @@
     {/block}
   </div>
 </div>
+<div class="footer-logo-container text-center">
+  <img class="footer-logo" src="{$urls.img_url}logo.png" alt="logo">
+</div>
 <div class="footer-container">
   <div class="container">
     <div class="row">
@@ -43,12 +46,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 text-center">
-        <div class="footer-payment-wrapper">
-          <img class="payment" src="{$urls.img_url}payment-paypal.png" alt="paypal">
-          <img class="payment" src="{$urls.img_url}payment-visa.png" alt="visa">
-          <img class="payment" src="{$urls.img_url}payment-mastercard.png" alt="master card">
-          <img class="payment" src="{$urls.img_url}payment-skrill.png" alt="skrill">
-        </div>
+        <img class="payment-methods" src="{$urls.img_url}payment-methods.png" alt="payment-methods">
       </div>
     </div>
     <div class="row">

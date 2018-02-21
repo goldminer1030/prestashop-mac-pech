@@ -335,6 +335,59 @@ a:hover {
   letter-spacing: 1.4px;
   color: #1d4a42;
 }
-.payment {
+.payment-methods {
   margin: 15px;
+  max-width: 100%;
+}
+.footer-logo {
+  width: 258px;
+  max-width: 100%;
+}
+
+.banner-wrapper {
+  position: relative;
+}
+.banner-wrapper .banner-title-wrapper {
+  position: absolute;
+  max-width: 655px;
+  top: 35px;
+  left: 45px;
+}
+.banner-wrapper .banner-title-wrapper .banner-main-title {
+  font-family: 'bebas_neuebold';
+  line-height: 1;
+  font-size: 50.8px;
+  letter-spacing: 5.1px;
+  color: #ffffff;
+}
+.banner-wrapper .banner-title-wrapper .banner-sub-title {
+  font-size: 29px;
+  font-style: italic;
+  line-height: 1.3;
+  letter-spacing: 2.9px;
+  color: #ffffff;
+}
+.banner-wrapper .banner-button-wrapper {
+  position: absolute;
+  left: 45px;
+  bottom: 0;
+}
+.banner-wrapper .banner-button-wrapper .banner-link {
+  display: inline-block;
+  padding: 15px 25px;
+  margin-bottom: 13px;
+  background-color: #1d4a42;
+  border-radius: 15px;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 2.1px;
+  text-align: center;
+  color: #ffffff;
+}
+.banner-wrapper .banner-button-wrapper .banner-credit-photo {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.17;
+  letter-spacing: 1.2px;
+  color: #ffffff;
 }
