@@ -56,7 +56,7 @@
         <div class="bg-main">
           <section id="wrapper">
             {hook h="displayWrapperTop"}
-            <div class="container">
+            <div class="body-container">
               {block name='breadcrumb'}
                 {include file='_partials/breadcrumb.tpl'}
               {/block}

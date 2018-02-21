@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2018-02-20 21:21:54
+<?php /* Smarty version Smarty-3.1.19, created on 2018-02-20 22:23:40
          compiled from "E:\xampp\htdocs\mac-peche\demo\modules\welcome\views\content.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:44935a8cd7c2a49a05-06275001%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:321985a8ce63cd73f01-64110320%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '44935a8cd7c2a49a05-06275001',
+  'nocache_hash' => '321985a8ce63cd73f01-64110320',
   'function' => 
   array (
   ),
@@ -31,9 +31,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_5a8cd7c2a73a77_55662763',
+  'unifunc' => 'content_5a8ce63cda2362_71933477',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a8cd7c2a73a77_55662763')) {function content_5a8cd7c2a73a77_55662763($_smarty_tpl) {?><?php if (!is_callable('smarty_function_math')) include 'E:\\xampp\\htdocs\\mac-peche\\demo\\vendor\\prestashop\\smarty\\plugins\\function.math.php';
+<?php if ($_valid && !is_callable('content_5a8ce63cda2362_71933477')) {function content_5a8ce63cda2362_71933477($_smarty_tpl) {?><?php if (!is_callable('smarty_function_math')) include 'E:\\xampp\\htdocs\\mac-peche\\demo\\vendor\\prestashop\\smarty\\plugins\\function.math.php';
 ?>
 
 <div class="onboarding-advancement" style="display: none">
