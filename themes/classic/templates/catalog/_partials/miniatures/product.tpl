@@ -37,7 +37,7 @@
 
       <div class="product-description">
         {block name='product_name'}
-          <h1 class="h3 product-title" itemprop="name"><a href="{$product.url}">{$product.name|truncate:30:'...'}</a></h1>
+          <h1 class="h3 product-title" itemprop="name"><a href="{$product.url}">{$product.name|truncate:20:'...'}</a></h1>
         {/block}
 
         {block name='product_price_and_shipping'}
@@ -63,6 +63,16 @@
               {hook h='displayProductPriceBlock' product=$product type='weight'}
             </div>
           {/if}
+
+          <form action="{$urls.pages.cart}" method="post" class="add-to-cart-or-refresh">
+            <input type="hidden" name="token" value="{$static_token}">
+            <input type="hidden" name="id_product" value="{$product.id}" class="product_page_product_id">
+            <input type="hidden" name="qty" value="1">
+            <button class="btn btn-primary quick-add-to-cart" data-button-action="add-to-cart" type="submit" {if $product.quantity < 1 }disabled{/if}>
+              {l s='Add to cart' d='Shop.Theme.Actions'}
+            </button>
+          </form>
+
         {/block}
 
         {block name='product_reviews'}
@@ -78,6 +88,7 @@
         </ul>
       {/block}
 
+      {*
       <div class="highlighted-informations{if !$product.main_variants} no-variants{/if} hidden-sm-down">
         {block name='quick_view'}
           <a class="quick-view" href="#" data-link-action="quickview">
@@ -91,6 +102,7 @@
           {/if}
         {/block}
       </div>
+      *}
 
     </div>
   </article>

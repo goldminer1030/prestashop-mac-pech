@@ -65,6 +65,9 @@
           {hook h='displayTop'}
           <div class="clearfix"></div>
         </div>
+        <div class="shopping_cart">
+                
+        </div>
       </div>
     </div>
     <div class="row">
