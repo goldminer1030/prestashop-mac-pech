@@ -536,3 +536,77 @@ a:hover {
   display: initial;
   padding: 2px 10px;
 }
+
+.home_categories {
+  height: 425px;
+  padding: 25px;
+  background-color: #1d4a42;
+}
+.home_categories h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  letter-spacing: 2.2px;
+  text-align: center;
+  color: #ffffff;
+}
+#subcategories {
+  height: 340px;
+  overflow: auto;
+}
+.home_categories .subcategory-name {
+  font-size: 14px;
+  line-height: 1.57;
+  letter-spacing: 1.4px;
+  color: #fff146;
+}
+.top-link-bar-wrapper {
+  height: 70px;
+}
+.top-link-bar {
+  width: 50%;
+}
+.top-link-bar.main-domain {
+  float: left;
+}
+.top-link-bar.sub-domain {
+  float: right;
+}
+.top-link-bar .top-link-wrapper {
+  position: relative;
+  padding: 12px 0;
+  text-align: center;
+  border-bottom: 5px solid #1d4a42;
+}
+.top-link-bar .top-link-wrapper .top-link {
+  font-family: 'bebasregular';
+  font-size: 21px;
+  line-height: 1.05;
+  letter-spacing: 2.1px;
+  color: #1d4a42;
+}
+.top-link-bar.main-domain .top-link-wrapper .top-link-image {
+  position: absolute;
+  top: -12px;
+  right: 10px;
+}
+.top-link-bar.sub-domain .top-link-wrapper .top-link-image {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+}
+
+
+.left-padding-md {
+  padding-left: 0;
+}
+@media (min-width: 768px) {
+  .left-padding-md {
+    padding-left: 20px;
+  }
+  .no-right-padding-md {
+    padding-right: 0;
+  }
+  .no-padding-md {
+    padding: 0;
+  }
+}

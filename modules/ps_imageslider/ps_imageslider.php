@@ -555,6 +555,8 @@ class Ps_ImageSlider extends Module implements WidgetInterface
 
         $config = $this->getConfigFieldsValues();
 
+        $root_cat = Category::getRootCategory($this->context->cookie->id_lang);
+
         return [
             'homeslider' => [
                 'speed' => $config['HOMESLIDER_SPEED'],
@@ -562,6 +564,7 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                 'wrap' => $config['HOMESLIDER_WRAP'] ? 'true' : 'false',
                 'slides' => $slides,
             ],
+            'categories' => $root_cat->getSubCategories($this->context->cookie->id_lang),
         ];
     }
 
