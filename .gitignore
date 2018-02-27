@@ -32,4 +32,4 @@ download/
 upload/
 
 /app/cache/
-
+/app/cache/*
