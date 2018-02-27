@@ -68,6 +68,7 @@ a:hover {
 }
 
 #wrapper {
+  padding-top: 7px;
   box-shadow: none;
 }
 
@@ -353,6 +354,7 @@ a:hover {
 
 .banner-wrapper {
   position: relative;
+  margin-bottom: 35px;
 }
 .banner-wrapper .banner-title-wrapper {
   position: absolute;
@@ -595,18 +597,24 @@ a:hover {
   right: 10px;
 }
 
-
-.left-padding-md {
+.margin-bottom-sm {
+  margin-bottom: 20px;
+}
+.left-padding-lg {
   padding-left: 0;
 }
-@media (min-width: 768px) {
-  .left-padding-md {
+@media (min-width: 992px) {
+  .left-padding-lg {
     padding-left: 20px;
   }
-  .no-right-padding-md {
+  .no-right-padding-lg {
     padding-right: 0;
   }
-  .no-padding-md {
+  .no-padding-lg {
     padding: 0;
   }
+}
+
+::-webkit-scrollbar { 
+  display: none; 
 }

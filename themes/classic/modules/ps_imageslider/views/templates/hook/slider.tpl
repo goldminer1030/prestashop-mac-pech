@@ -24,7 +24,7 @@
  *}
 {if $homeslider.slides}
   <div class="row">
-    <div class="col-lg-3 no-right-padding-md">
+    <div class="col-lg-3 no-right-padding-lg margin-bottom-sm">
       <div class="home_categories">
         <h2>{l s='Categories' mod='homecategories'}</h2>
         {if isset($categories) AND $categories}
@@ -46,7 +46,7 @@
         <div class="cr"></div>
       </div>
     </div>
-    <div class="col-lg-9 no-padding-md">
+    <div class="col-lg-9 no-padding-lg">
       <div class="top-link-bar-wrapper clearfix">
         <div class="top-link-bar main-domain">
           <div class="top-link-wrapper">
@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-      <div class="carousel-wrapper left-padding-md">
+      <div class="carousel-wrapper left-padding-lg">
         <div id="carousel" data-ride="carousel" class="carousel slide" data-interval="{$homeslider.speed}" data-wrap="{(string)$homeslider.wrap}" data-pause="{$homeslider.pause}">
           <ul class="carousel-inner" role="listbox">
             {foreach from=$homeslider.slides item=slide name='homeslider'}

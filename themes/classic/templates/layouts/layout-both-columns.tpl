@@ -55,8 +55,10 @@
 
         <div class="bg-main">
           <section id="wrapper">
-            {hook h="displayWrapperTop"}
             <div class="clearfix body-container">
+              {block name='wrapper_top'}
+                {hook h="displayWrapperTop"}
+              {/block}
               {block name='breadcrumb'}
                 {include file='_partials/breadcrumb.tpl'}
               {/block}
