@@ -95,6 +95,9 @@
             </a>
           </div>
         </div>
+        {block name='breadcrumb'}
+          {include file='_partials/breadcrumb.tpl'}
+        {/block}
       </div>
     </div>
   </div>
