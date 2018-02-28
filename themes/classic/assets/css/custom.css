@@ -725,14 +725,22 @@ a:hover {
   margin-bottom: 0;
   border: 2px solid #f3f3f3;
 }
+.product-images>li.thumb-container {
+  width: 33.33%;
+  float: left;
+}
 .product-images > li.thumb-container > .thumb.selected,
 .product-images > li.thumb-container > .thumb:hover {
   border: 2px solid #1d4a42;
 }
 .images-container .product-images > li.thumb-container > .thumb {
-  width: 33.33%;
-  margin-right: 0;
+  width: 100%;
   border: 2px solid #f3f3f3;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.images-container .product-images > li.thumb-container:first-child > .thumb {
+  border-left-color: #f3f3f3;
 }
 .product-images > li.thumb-container > .thumb {
   box-shadow: none;
