@@ -6,6 +6,13 @@
   box-sizing: border-box;
  }
 
+@font-face {
+	font-family: 'myriad_pro_regular';
+	src: url('.MYRIADPROREGULAR.eot');
+	src: local('MYRIADPROREGULAR'), 
+  url('MYRIADPROREGULAR.woff') format('woff'), url('MYRIADPROREGULAR.ttf') format('truetype');
+}
+
  @font-face {
   font-family: 'bebasregular';
   src: url('bebas-webfont.woff2') format('woff2'),
@@ -458,7 +465,7 @@ a:hover {
 .featured-products .regular-price,
 .product-accessories .regular-price,
 .product-miniature .regular-price {
-  font-family: 'Myriad Pro';
+  font-family: 'myriad_pro_regular';
   font-size: 11.5px;
   font-weight: 400;
   line-height: 1.71;
@@ -595,6 +602,169 @@ a:hover {
   position: absolute;
   top: -20px;
   right: 10px;
+}
+
+.product-content-container {
+  padding: 35px;
+  background-color: #f3f3f3;
+}
+.product-content-container .h1 {
+  padding-bottom: 20px;
+  border-bottom: 3px solid #1d4a42;
+  font-family: 'bebasregular';
+  font-size: 31px;
+  letter-spacing: 2.1px;
+  color: #1d4a42;
+}
+.has-discount.product-price,
+.has-discount p {
+  color: #1d4a42;
+}
+.product-price {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.33;
+  letter-spacing: 1.5px;
+  color: #1d4a42;
+}
+.regular-price {
+  font-family: 'myriad_pro_regular';
+  font-size: 23.5px;
+  line-height: 1.7;
+  letter-spacing: 1.2px;
+  text-decoration: line-through;
+  font-weight: 400;
+  color: #595959;
+}
+.product-description-short p {
+  font-family: 'myriad_pro_regular';
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.7px;
+  text-align: justify;
+  color: #595959;
+}
+#product-availability {
+  margin: 10px 0;
+  font-size: 13.5px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.7px;
+  line-height: 25px;
+  color: #1d4a42;
+}
+.qty-label {
+  margin-right: 3px;
+}
+.qty-label .control-label {
+  padding: 11px 15px;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.32;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: #fbfbfb;
+  background-color: #8a8b8b;
+}
+.btn-primary,
+.btn-secondary,
+.btn-tertiary {
+  box-shadow: none;
+  background-color: #1d4a42;
+}
+.bootstrap-touchspin {
+  box-shadow: none;
+}
+.product-actions .add-to-cart {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.32;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: #fbfbfb;
+  background-color: #1d4a42;
+}
+.product-actions .add-to-cart:hover {
+  background-color: #1d4a42;
+}
+.tabs {
+  box-shadow: none;
+  background: transparent;
+}
+.tabs .nav-tabs {
+  border-bottom: 2px solid #1d4a42;
+}
+.tabs .nav-tabs .nav-link {
+  font-size: 27px;
+  line-height: 1.31;
+  letter-spacing: 1.4px;
+  color: #595959;
+  background-color: transparent;
+}
+.tabs .nav-tabs .nav-link.active,
+.tabs .nav-tabs .nav-link:hover {
+  font-weight: 800;
+  color: #1d4a42;
+  border-bottom: 2px solid #1d4a42;
+}
+.tabs .tab-content .product-description p {
+  font-family: 'myriad_pro_regular';
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.7px;
+  text-align: justify;
+  color: #595959;
+}
+#product #content {
+  max-width: 100%;
+}
+.product-cover img {
+  box-shadow: none;
+}
+.product-cover {
+  margin-bottom: 0;
+  border: 2px solid #f3f3f3;
+}
+.product-images > li.thumb-container > .thumb.selected,
+.product-images > li.thumb-container > .thumb:hover {
+  border: 2px solid #1d4a42;
+}
+.images-container .product-images > li.thumb-container > .thumb {
+  width: 33.33%;
+  margin-right: 0;
+  border: 2px solid #f3f3f3;
+}
+.product-images > li.thumb-container > .thumb {
+  box-shadow: none;
+}
+.secure-payment-wrapper {
+  display: inline-block;
+  margin-top: 25px;
+  margin-right: 25px;
+}
+.social-sharing {
+  display: inline-block;
+  width: auto;
+  margin-top: 25px;
+}
+.social-wrapper a {
+  display: inline-block;
+  margin: 2px 0;
+  padding: 0 10px;
+  line-height: 35px;
+  background-color: #fff;
+  font-size: 12px;
+}
+.secure-payment-wrapper p,
+.social-sharing p {
+  font-size: 14px;
+  line-height: 1.25;
+  letter-spacing: 0.7px;
+  color: #1d4a42;
+}
+.color, .custom-checkbox input[type="checkbox"] + span.color,
+.product-variants > .product-variants-item select {
+  box-shadow: none;
 }
 
 .margin-bottom-sm {
