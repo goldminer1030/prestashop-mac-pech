@@ -31,18 +31,13 @@
 {block name='header_nav'}
   <nav class="header-nav">
     <div class="row">
-      <div class="hidden-sm-down">
-        <div class="right-nav">
-          {hook h='displayNav2'}
-        </div>
-      </div>
       <div class="hidden-md-up text-sm-center mobile">
         <div class="float-xs-left" id="menu-icon">
           <i class="material-icons d-inline">&#xE5D2;</i>
         </div>
         <div class="float-xs-right" id="_mobile_cart"></div>
         <div class="float-xs-right" id="_mobile_user_info"></div>
-        <div class="top-logo" id="_mobile_logo"></div>
+        <div class="float-xs-left top-logo" id="_mobile_logo"></div>
         <div class="clearfix"></div>
       </div>
     </div>
@@ -57,16 +52,16 @@
           <img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}">
         </a>
       </div>
-      <div class="col-md-4 col-sm-12">
+      <div class="col-md-4 col-sm-12 top-title-wrapper">
         <p class="top-title">Vente en ligne des plus grandes marques de pêche</p>
       </div>
-      <div class="col-md-4 col-sm-12 position-static no-padding">
+      <div class="col-md-4 col-sm-12 position-static">
         <div class="row">
           {hook h='displayTop'}
           <div class="clearfix"></div>
         </div>
-        <div class="shopping_cart">
-                
+        <div class="shopping-cart-wrapper">
+          {hook h='displayHeaderShoppingCart'}
         </div>
       </div>
     </div>
@@ -74,7 +69,7 @@
       <div class="col-md-4 top-gap-sm">
         <div class="header-contact-wrapper">
           <img class="header-contact-icon" src="{$urls.img_url}contact-user.png" alt="contact-user">
-          <span class="header-contact-detail">Bienvenue, vous pouvez vous <a class="header-login" href="#">connecter</a> ou vous <a class="header-register" href="#">enregistrer</a></span>
+          <span class="header-contact-detail">Bienvenue, vous pouvez vous <a class="header-login" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">connecter</a> ou vous <a class="header-register" href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}?create_account=1">enregistrer</a></span>
         </div>
         <div class="header-contact-wrapper">
           <img class="header-contact-icon" src="{$urls.img_url}contact-phone.png" alt="contact-phone">

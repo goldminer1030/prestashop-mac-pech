@@ -33,3 +33,9 @@ upload/
 
 /app/cache/
 /app/cache/*
+.idea/.name
+.idea/demo.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
