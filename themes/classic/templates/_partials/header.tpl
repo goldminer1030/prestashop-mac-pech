@@ -85,7 +85,7 @@
           <span class="header-contact-detail">Frais de port <strong>gratuit</strong> à partir de 60€</span>
         </div>
       </div>
-      <div class="col-md-8 top-gap-sm sponsor-bar">
+      <div class="col-md-8 sponsor-bar">
         <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-01.png" alt="sponsor">
         <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-02.png" alt="sponsor">
         <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-03.png" alt="sponsor">
