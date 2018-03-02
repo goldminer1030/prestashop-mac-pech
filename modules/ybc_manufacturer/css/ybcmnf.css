@@ -1,0 +1,106 @@
+#ybc-mnf-block {
+  float: left;
+  margin: 10px 0;
+  position: relative;
+  width: 100%;
+}
+#ybc-mnf-block .ybc-mnf-block-title {
+  float: left;
+  margin: 0;
+  width: 100%;
+  border-bottom: 2px solid #e7e7e7;
+  padding-bottom: 5px;
+  padding-top: 10px;
+}
+#ybc-mnf-block .title_cat {
+  color: #666666;
+  font-size: 15px;
+  font-weight: bold;
+  padding-bottom: 4px;
+  position: relative;
+  text-transform: uppercase;
+}
+#ybc-mnf-block .ybc-mnf-block-li {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+#ybc-mnf-block .ybc-mnf-block-a-img {
+  width: 100%;
+  float: left;
+}
+.ybc-mnf-block-a-img > img {
+  width: 100%;
+  float: left;
+  height: 120px;
+}
+#ybc-mnf-block-ul {
+  float: left;
+  margin-bottom: 0;
+  padding-top: 10px;
+  width: 100%;
+  position: static;
+}
+#ybc-mnf-block-ul .owl-buttons {
+  position: absolute;
+  right: 0;
+  top: 7px;
+}
+#ybc-mnf-block-ul .owl-controls .owl-page, .owl-controls .owl-buttons div {
+  cursor: pointer;
+  height: 20px;
+  overflow: hidden;
+  width: 20px;
+  display: inline-block;
+}
+.ybc-mnf-block-a-name{
+    display: inline-block;
+    margin-top: 10px;
+}
+#ybc-mnf-block .owl-buttons .owl-next::before
+{
+  content: "\f061"; 
+  padding-left: 8px; 
+  font-family: FontAwesome;
+}
+#ybc-mnf-block .owl-buttons .owl-prev::before,
+#ybc-mnf-block .owl-buttons .owl-next::before
+ {
+  color: #e5e5e5; 
+  float: left;  
+  font-size: 15px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-weight: 300;
+ }
+ #ybc-mnf-block .owl-buttons .owl-next::before
+ {
+    margin-left: -1px;
+ }
+ #ybc-mnf-block .owl-buttons .owl-prev::before
+ {
+     content: "\f060";
+     font-family: FontAwesome;
+     border-right: 1px solid #e5e5e5;
+     padding-right:6px;
+ }
+ #ybc-mnf-block  .owl-buttons .owl-next:hover::before, 
+ #ybc-mnf-block  .owl-buttons .owl-prev:hover::before {
+  color: #acacac;
+}
+ #ybc-mnf-block .owl-prev.disabled:hover::before,
+ #ybc-mnf-block .owl-next.disabled:hover::before{
+  cursor: not-allowed;
+  opacity: 0.5;
+} 
+#ybc-mnf-block .title_cat:before {
+  background-color: #BABABA;
+  bottom: -3px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}

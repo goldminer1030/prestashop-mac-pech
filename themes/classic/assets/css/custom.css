@@ -52,6 +52,9 @@ body, html {
   height: auto;
 }
 
+li.product-flag {
+  background: #1d9d50;
+}
 .btn-primary.focus,
 .btn-primary:focus,
 .btn-primary:hover {
@@ -111,10 +114,16 @@ a:hover {
   padding: 0 30px;
 }
 
+#pagenotfound .page-not-found,
+#products .page-not-found,
 .page-addresses .address,
 .page-authentication #content,
 .footer-container {
   box-shadow: none;
+}
+#pagenotfound .page-not-found,
+#products .page-not-found {
+  background: transparent;
 }
 
 .bg-main {
