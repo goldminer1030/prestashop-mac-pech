@@ -5,22 +5,89 @@
  * {
   box-sizing: border-box;
  }
-
+@font-face {
+    font-family: 'OpenSans-SemiBold';
+    src: url('OpenSans-SemiBold.woff2') format('woff2'),
+        url('OpenSans-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url('OpenSans-Light.woff2') format('woff2'),
+        url('OpenSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OpenSans-Italic';
+    src: url('OpenSans-Italic.woff2') format('woff2'),
+        url('OpenSans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'OpenSans-BoldItalic';
+    src: url('OpenSans-BoldItalic.woff2') format('woff2'),
+        url('OpenSans-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'OpenSans-ExtraBoldItalic';
+    src: url('OpenSans-ExtraBoldItalic.woff2') format('woff2'),
+        url('OpenSans-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('OpenSans-Regular.woff2') format('woff2'),
+        url('OpenSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OpenSans-ExtraBold';
+    src: url('OpenSans-ExtraBold.woff2') format('woff2'),
+        url('OpenSans-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OpenSans-SemiBoldItalic';
+    src: url('OpenSans-SemiBoldItalic.woff2') format('woff2'),
+        url('OpenSans-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url('OpenSans-Bold.woff2') format('woff2'),
+        url('OpenSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OpenSans-LightItalic';
+    src: url('OpenSans-LightItalic.woff2') format('woff2'),
+        url('OpenSans-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
 @font-face {
 	font-family: 'myriad_pro_regular';
 	src: url('.MYRIADPROREGULAR.eot');
 	src: local('MYRIADPROREGULAR'), 
   url('MYRIADPROREGULAR.woff') format('woff'), url('MYRIADPROREGULAR.ttf') format('truetype');
 }
-
- @font-face {
+@font-face {
   font-family: 'bebasregular';
   src: url('bebas-webfont.woff2') format('woff2'),
         url('bebas-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'bebas_neuebold';
   src: url('bebasneue_bold-webfont.woff2') format('woff2'),
@@ -28,7 +95,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'bebas_neuebook';
   src: url('bebasneue_book-webfont.woff2') format('woff2'),
@@ -45,7 +111,7 @@ body {
   background-image: url("../img/background-fisherman.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Open Sans';
+  font-family: 'OpenSans-Regular';
 }
 
 body, html {
@@ -225,7 +291,7 @@ a:hover {
 
 .block_newsletter {
   position: relative;
-  min-height: 200px;
+  height: 122px;
 }
 .block_newsletter .newsletter-bg {
   width: 100%;
@@ -310,7 +376,6 @@ a:hover {
 }
 .block_newsletter form input[type=text] {
   height: 60px;
-  font-family: "Open Sans";
   font-size: 21px;
   line-height: 1.43;
   letter-spacing: 2.1px;
@@ -371,7 +436,7 @@ a:hover {
 .banner-wrapper {
   position: relative;
   margin-bottom: 35px;
-  min-height: 180px;
+  height: 190px;
 }
 .banner-wrapper .banner-title-wrapper {
   position: absolute;
@@ -1079,6 +1144,9 @@ a:hover {
   #wrapper .breadcrumb li a {
     font-size: 14px;
   }
+  .banner-wrapper {
+    height: 300px;
+  }
   .banner-wrapper .banner-title-wrapper {
     max-width: 540px;
     top: 25px;
@@ -1103,9 +1171,12 @@ a:hover {
   .banner-wrapper .banner-button-wrapper .banner-credit-photo {
     font-size: 12px;
   }
+  .block_newsletter {
+    height: 172px;
+  }
   .block_newsletter .news-form {
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
   }
 }
 @media (min-width: 1200px) {
@@ -1124,6 +1195,9 @@ a:hover {
   }
   .top-link-bar .top-link-wrapper .top-link {
     font-size: 21px;
+  }
+  .banner-wrapper {
+    height: 360px;
   }
   .banner-wrapper .banner-title-wrapper {
     max-width: 655px;
@@ -1167,6 +1241,9 @@ a:hover {
   .marquee .content .news-per-email {
     font-size: 24.4px;
     letter-spacing: 2.4px;
+  }
+  .block_newsletter {
+    height: 212px;
   }
   .block_newsletter .news-form {
     bottom: 25px;
@@ -1212,6 +1289,12 @@ a:hover {
   }
 }
 @media (min-width: 1316px) {
+  .banner-wrapper {
+    height: 400px;
+  }
+  .block_newsletter {
+    height: 222px;
+  }
   .page-wrapper {
     width: 1256px;
     max-width: 100%;

@@ -24,7 +24,7 @@
  *}
 
 <div class="block_newsletter">
-  <img class="newsletter-bg" src="{$urls.img_url}newsletter.jpg" alt="newsletter">
+  <img class="newsletter-bg cimagex" src="{$urls.img_url}newsletter.jpg" alt="newsletter">
   <div class="marquee">
     <div class="content">
       <span class="news-receive">Recevez</span>
