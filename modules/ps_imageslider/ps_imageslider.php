@@ -43,6 +43,7 @@ class Ps_ImageSlider extends Module implements WidgetInterface
     protected $default_speed = 5000;
     protected $default_pause_on_hover = 1;
     protected $default_wrap = 1;
+    protected $default_image_index = 0;
     protected $templateFile;
 
     public function __construct()
@@ -90,21 +91,24 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                 $res = Configuration::updateValue('HOMESLIDER_SPEED', $this->default_speed, false, $shop_group_id, $shop_id);
                 $res &= Configuration::updateValue('HOMESLIDER_PAUSE_ON_HOVER', $this->default_pause_on_hover, false, $shop_group_id, $shop_id);
                 $res &= Configuration::updateValue('HOMESLIDER_WRAP', $this->default_wrap, false, $shop_group_id, $shop_id);
+                $res &= Configuration::updateValue('STATIC_IMAGE_INDEX', $this->default_image_index, false, $shop_group_id, $shop_id);
             }
-
+            
             /* Sets up Shop Group configuration */
             if (count($shop_groups_list)) {
                 foreach ($shop_groups_list as $shop_group_id) {
                     $res &= Configuration::updateValue('HOMESLIDER_SPEED', $this->default_speed, false, $shop_group_id);
                     $res &= Configuration::updateValue('HOMESLIDER_PAUSE_ON_HOVER', $this->default_pause_on_hover, false, $shop_group_id);
                     $res &= Configuration::updateValue('HOMESLIDER_WRAP', $this->default_wrap, false, $shop_group_id);
+                    $res &= Configuration::updateValue('STATIC_IMAGE_INDEX', $this->default_image_index, false, $shop_group_id);
                 }
             }
-
+            
             /* Sets up Global configuration */
             $res &= Configuration::updateValue('HOMESLIDER_SPEED', $this->default_speed);
             $res &= Configuration::updateValue('HOMESLIDER_PAUSE_ON_HOVER', $this->default_pause_on_hover);
             $res &= Configuration::updateValue('HOMESLIDER_WRAP', $this->default_wrap);
+            $res &= Configuration::updateValue('STATIC_IMAGE_INDEX', $this->default_image_index);
 
             /* Creates tables */
             $res &= $this->createTables();
@@ -161,6 +165,7 @@ class Ps_ImageSlider extends Module implements WidgetInterface
             $res &= Configuration::deleteByName('HOMESLIDER_SPEED');
             $res &= Configuration::deleteByName('HOMESLIDER_PAUSE_ON_HOVER');
             $res &= Configuration::deleteByName('HOMESLIDER_WRAP');
+            $res &= Configuration::deleteByName('STATIC_IMAGE_INDEX');
 
             return (bool)$res;
         }
@@ -388,6 +393,7 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                 $res = Configuration::updateValue('HOMESLIDER_SPEED', (int)Tools::getValue('HOMESLIDER_SPEED'), false, $shop_group_id, $shop_id);
                 $res &= Configuration::updateValue('HOMESLIDER_PAUSE_ON_HOVER', (int)Tools::getValue('HOMESLIDER_PAUSE_ON_HOVER'), false, $shop_group_id, $shop_id);
                 $res &= Configuration::updateValue('HOMESLIDER_WRAP', (int)Tools::getValue('HOMESLIDER_WRAP'), false, $shop_group_id, $shop_id);
+                $res &= Configuration::updateValue('STATIC_IMAGE_INDEX', (int)Tools::getValue('STATIC_IMAGE_INDEX'), false, $shop_group_id, $shop_id);                
             }
 
             /* Update global shop context if needed*/
@@ -396,11 +402,13 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                     $res &= Configuration::updateValue('HOMESLIDER_SPEED', (int)Tools::getValue('HOMESLIDER_SPEED'));
                     $res &= Configuration::updateValue('HOMESLIDER_PAUSE_ON_HOVER', (int)Tools::getValue('HOMESLIDER_PAUSE_ON_HOVER'));
                     $res &= Configuration::updateValue('HOMESLIDER_WRAP', (int)Tools::getValue('HOMESLIDER_WRAP'));
+                    $res &= Configuration::updateValue('STATIC_IMAGE_INDEX', (int)Tools::getValue('STATIC_IMAGE_INDEX'));
                     if (count($shop_groups_list)) {
                         foreach ($shop_groups_list as $shop_group_id) {
                             $res &= Configuration::updateValue('HOMESLIDER_SPEED', (int)Tools::getValue('HOMESLIDER_SPEED'), false, $shop_group_id);
                             $res &= Configuration::updateValue('HOMESLIDER_PAUSE_ON_HOVER', (int)Tools::getValue('HOMESLIDER_PAUSE_ON_HOVER'), false, $shop_group_id);
                             $res &= Configuration::updateValue('HOMESLIDER_WRAP', (int)Tools::getValue('HOMESLIDER_WRAP'), false, $shop_group_id);
+                            $res &= Configuration::updateValue('STATIC_IMAGE_INDEX', (int)Tools::getValue('STATIC_IMAGE_INDEX'), false, $shop_group_id);
                         }
                     }
                     break;
@@ -410,6 +418,7 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                             $res &= Configuration::updateValue('HOMESLIDER_SPEED', (int)Tools::getValue('HOMESLIDER_SPEED'), false, $shop_group_id);
                             $res &= Configuration::updateValue('HOMESLIDER_PAUSE_ON_HOVER', (int)Tools::getValue('HOMESLIDER_PAUSE_ON_HOVER'), false, $shop_group_id);
                             $res &= Configuration::updateValue('HOMESLIDER_WRAP', (int)Tools::getValue('HOMESLIDER_WRAP'), false, $shop_group_id);
+                            $res &= Configuration::updateValue('STATIC_IMAGE_INDEX', (int)Tools::getValue('STATIC_IMAGE_INDEX'), false, $shop_group_id);
                         }
                     }
                     break;
@@ -557,6 +566,17 @@ class Ps_ImageSlider extends Module implements WidgetInterface
 
         $root_cat = Category::getRootCategory($this->context->cookie->id_lang);
 
+        $category = new Category((int)Configuration::get('PS_HOME_CATEGORY'), $this->context->language->id);
+        $int_imageIndex = (int)$config['STATIC_IMAGE_INDEX'];
+
+        if($slides) {
+            $slide_count = count($slides);
+            if($int_imageIndex < 0) $int_imageIndex = 0;
+            if($int_imageIndex >= $slide_count) $int_imageIndex = $slide_count - 1;
+        } else {
+            $int_imageIndex = -1;
+        }
+
         return [
             'homeslider' => [
                 'speed' => $config['HOMESLIDER_SPEED'],
@@ -564,7 +584,77 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                 'wrap' => $config['HOMESLIDER_WRAP'] ? 'true' : 'false',
                 'slides' => $slides,
             ],
-            'categories' => $root_cat->getSubCategories($this->context->cookie->id_lang),
+            'static_index' => $int_imageIndex,
+            'categories' => $this->getCategories($category),//$root_cat->getSubCategories($this->context->cookie->id_lang),
+        ];
+    }
+
+    private function getCategories($category)
+    {
+        $range = '';
+        $maxdepth = 4;
+        if (Validate::isLoadedObject($category)) {
+            if ($maxdepth > 0) {
+                $maxdepth += $category->level_depth;
+            }
+            $range = 'AND nleft >= '.(int)$category->nleft.' AND nright <= '.(int)$category->nright;
+        }
+
+        $resultIds = array();
+        $resultParents = array();
+        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('
+			SELECT c.id_parent, c.id_category, cl.name, cl.description, cl.link_rewrite
+			FROM `'._DB_PREFIX_.'category` c
+			INNER JOIN `'._DB_PREFIX_.'category_lang` cl ON (c.`id_category` = cl.`id_category` AND cl.`id_lang` = '.(int)$this->context->language->id.Shop::addSqlRestrictionOnLang('cl').')
+			INNER JOIN `'._DB_PREFIX_.'category_shop` cs ON (cs.`id_category` = c.`id_category` AND cs.`id_shop` = '.(int)$this->context->shop->id.')
+			WHERE (c.`active` = 1 OR c.`id_category` = '.(int)Configuration::get('PS_HOME_CATEGORY').')
+			AND c.`id_category` != 1
+			'.((int)$maxdepth != 0 ? ' AND `level_depth` <= '.(int)$maxdepth : '').'
+			'.$range.'
+			AND c.id_category IN (
+				SELECT id_category
+				FROM `'._DB_PREFIX_.'category_group`
+				WHERE `id_group` IN ('.pSQL(implode(', ', Customer::getGroupsStatic((int)$this->context->customer->id))).')
+			)
+            ORDER BY `level_depth` ASC, cl.`name` ASC');
+        foreach ($result as &$row) {
+            $resultParents[$row['id_parent']][] = &$row;
+            $resultIds[$row['id_category']] = &$row;
+        }
+
+        return $this->getTree($resultParents, $resultIds, $maxdepth, ($category ? $category->id : null));
+    }
+
+    public function getTree($resultParents, $resultIds, $maxDepth, $id_category = null, $currentDepth = 0)
+    {
+        if (is_null($id_category)) {
+            $id_category = $this->context->shop->getCategory();
+        }
+
+        $children = [];
+
+        if (isset($resultParents[$id_category]) && count($resultParents[$id_category]) && ($maxDepth == 0 || $currentDepth < $maxDepth)) {
+            foreach ($resultParents[$id_category] as $subcat) {
+                $children[] = $this->getTree($resultParents, $resultIds, $maxDepth, $subcat['id_category'], $currentDepth + 1);
+            }
+        }
+
+        if (isset($resultIds[$id_category])) {
+            $link = $this->context->link->getCategoryLink($id_category, $resultIds[$id_category]['link_rewrite']);
+            $name = $resultIds[$id_category]['name'];
+            $desc = $resultIds[$id_category]['description'];
+        } else {
+            $link = $name = $desc = '';
+        }
+
+        $cat = Tools::getValue('id_category');
+        return [
+            'id' => $id_category,
+            'link' => $link,
+            'name' => $name,
+            'select' => $cat == $id_category ? 'selected' : '',
+            'desc'=> $desc,
+            'children' => $children
         ];
     }
 
@@ -906,6 +996,13 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                             )
                         ),
                     ),
+                    array(
+                        'type' => 'text',
+                        'label' => $this->getTranslator()->trans('Image Index', array(), 'Modules.Imageslider.Admin'),
+                        'name' => 'STATIC_IMAGE_INDEX',
+                        'class' => 'fixed-width-sm',
+                        'desc' => $this->getTranslator()->trans('The image index to be shown in pages except home. default: 0', array(), 'Modules.Imageslider.Admin')
+                    ),
                 ),
                 'submit' => array(
                     'title' => $this->getTranslator()->trans('Save', array(), 'Admin.Actions'),
@@ -943,6 +1040,7 @@ class Ps_ImageSlider extends Module implements WidgetInterface
             'HOMESLIDER_SPEED' => Tools::getValue('HOMESLIDER_SPEED', Configuration::get('HOMESLIDER_SPEED', null, $id_shop_group, $id_shop)),
             'HOMESLIDER_PAUSE_ON_HOVER' => Tools::getValue('HOMESLIDER_PAUSE_ON_HOVER', Configuration::get('HOMESLIDER_PAUSE_ON_HOVER', null, $id_shop_group, $id_shop)),
             'HOMESLIDER_WRAP' => Tools::getValue('HOMESLIDER_WRAP', Configuration::get('HOMESLIDER_WRAP', null, $id_shop_group, $id_shop)),
+            'STATIC_IMAGE_INDEX' => Tools::getValue('STATIC_IMAGE_INDEX', Configuration::get('STATIC_IMAGE_INDEX', null, $id_shop_group, $id_shop)),
         );
     }
 

@@ -628,7 +628,7 @@ a:hover {
 
 .home_categories {
   height: 332px;
-  padding: 25px;
+  padding: 25px 25px 25px 15px;
   background-color: #1d4a42;
 }
 .home_categories h2 {
@@ -638,15 +638,9 @@ a:hover {
   text-align: center;
   color: #ffffff;
 }
-#subcategories {
+.home_categories .block-category-tree {
   height: 244px;
   overflow: auto;
-}
-.home_categories .subcategory-name {
-  font-size: 14px;
-  line-height: 1.57;
-  letter-spacing: 1.4px;
-  color: #fff146;
 }
 .top-link-bar-wrapper {
   height: 70px;
@@ -1030,6 +1024,39 @@ a:hover {
   border-radius: 50%;
 }
 
+.block-category-tree ul li a {
+  line-height: 1.57;
+  letter-spacing: 1.4px;
+  color: #fff146;
+  text-decoration: none;
+}
+.block-category-tree .selected>a {
+  color: #ffffff;
+}
+.block-category-tree ul ul {
+  margin-left: 10px;
+}
+.carousel .carousel-inner figure img {
+  width: 100%;
+}
+.carousel .caption {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  padding-right: 20px;
+  color: #1d4a42;
+  max-width: 100px;
+}
+.carousel .caption .display-1 {
+  font-family: 'bebasregular';
+  font-size: 25px;
+}
+.carousel .caption .caption-description h2,
+.carousel .caption .caption-description p {
+  font-size: 6px;
+  color: #1d4a42;
+}
+
 .margin-bottom-sm {
   margin-bottom: 20px;
 }
@@ -1051,6 +1078,13 @@ a:hover {
   .tabs .nav-tabs .nav-item {
     float: left;
     width: auto;
+  }
+  .carousel .caption {
+    top: 10px;
+    max-width: 190px;
+  }
+  .carousel .caption .display-1 {
+    font-size: 50px;
   }
 }
 @media (min-width: 768px) {
@@ -1115,6 +1149,13 @@ a:hover {
     font-size: 19.4px;
     letter-spacing: 2.4px;
   }
+  .carousel .caption {
+    top: 15px;
+    max-width: 240px;
+  }
+  .carousel .caption .display-1 {
+    font-size: 65px;
+  }
 }
 @media (min-width: 992px) {
   .page-wrapper {
@@ -1178,6 +1219,13 @@ a:hover {
     position: absolute;
     bottom: 20px;
   }
+  .carousel .caption {
+    top: 13px;
+    max-width: 250px;
+  }
+  .carousel .caption .display-1 {
+    font-size: 68px;
+  }
 }
 @media (min-width: 1200px) {
   .page-wrapper {
@@ -1187,7 +1235,7 @@ a:hover {
   .home_categories {
     height: 388px;
   }
-  #subcategories {
+  .home_categories .block-category-tree {
     height: 300px;
   }
   .top-title {
@@ -1287,6 +1335,17 @@ a:hover {
   .tabs .nav-tabs .nav-link {
     font-size: 27px;
   }
+  .carousel .caption {
+    top: 10px;
+    max-width: 190px;
+  }
+  .carousel .caption .display-1 {
+    font-size: 50px;
+  }
+  .carousel .caption .caption-description h2,
+  .carousel .caption .caption-description p {
+    font-size: 6px;
+  }
 }
 @media (min-width: 1316px) {
   .banner-wrapper {
@@ -1302,11 +1361,18 @@ a:hover {
   .home_categories {
     height: 425px;
   }
-  #subcategories {
+  .home_categories .block-category-tree {
     height: 340px;
   }
   .sponsor-bar {
     margin-top: 20px;
+  }
+  .carousel .caption {
+    top: 20px;
+    max-width: 340px;
+  }
+  .carousel .caption .display-1 {
+    font-size: 85px;
   }
 }
 

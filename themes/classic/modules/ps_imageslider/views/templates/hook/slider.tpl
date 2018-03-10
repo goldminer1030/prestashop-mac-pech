@@ -22,27 +22,42 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+ {function name="categories" nodes=[] depth=0}
+  {strip}
+    {if $nodes|count}
+      <ul class="category-sub-menu">
+        {foreach from=$nodes item=node}
+          <li class="{$node.select}" data-depth="{$depth}">
+            {if $depth===0}
+              <a href="{$node.link}">{$node.name}</a>
+              {if $node.children}
+                {categories nodes=$node.children depth=$depth+1}
+              {/if}
+            {else}
+              <a class="category-sub-link" href="{$node.link}">{$node.name}</a>
+              {if $node.children}
+                {categories nodes=$node.children depth=$depth+1}
+              {/if}
+            {/if}
+          </li>
+        {/foreach}
+      </ul>
+    {/if}
+  {/strip}
+{/function}
+
 {if $homeslider.slides}
   <div class="row">
     <div class="col-lg-3 no-right-padding-lg margin-bottom-sm">
       <div class="home_categories">
         <h2>{l s='Categories' mod='homecategories'}</h2>
-        {if isset($categories) AND $categories}
-          <div id="subcategories">
-            <ul class="clearfix">
-              {foreach from=$categories item=subcategory name=homeCategories}
-                <li>
-                  <h5>
-                    <a class="subcategory-name"
-                        href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|truncate:25:'...'|escape:'html':'UTF-8'}</a>
-                  </h5>
-                </li>
-              {/foreach}
-            </ul class="clearfix">
-          </div>
-        {else}
-          <p>{l s='No categories' mod='homecategories'}</p>
-        {/if}
+        
+        <div class="block-category-tree">
+          <ul class="category-top-menu">
+            <li>{categories nodes=$categories.children}</li>
+          </ul>
+        </div>
+
         <div class="cr"></div>
       </div>
     </div>
@@ -61,6 +76,7 @@
           </div>
         </div>
       </div>
+      {if $page.page_name == 'index'}
       <div class="carousel-wrapper left-padding-lg">
         <div id="carousel" data-ride="carousel" class="carousel slide" data-interval="{$homeslider.speed}" data-wrap="{(string)$homeslider.wrap}" data-pause="{$homeslider.pause}">
           <ul class="carousel-inner" role="listbox">
@@ -99,6 +115,27 @@
           {include file='_partials/breadcrumb.tpl'}
         {/block}
       </div>
+      {else}
+        {if $static_index >= 0}
+          <div class="carousel-wrapper left-padding-lg">
+            <div class="carousel">
+              <div class="carousel-inner">
+                <a href="{$homeslider.slides[$static_index].url}">
+                  <figure>
+                    <img src="{$homeslider.slides[$static_index].image_url}" alt="{$homeslider.slides[$static_index].legend|escape}">
+                    {if $homeslider.slides[$static_index].title || $homeslider.slides[$static_index].description}
+                      <figcaption class="caption">
+                        <h2 class="display-1 text-uppercase">{$homeslider.slides[$static_index].title}</h2>
+                        <div class="caption-description">{$homeslider.slides[$static_index].description nofilter}</div>
+                      </figcaption>
+                    {/if}
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        {/if}
+      {/if}
     </div>
   </div>
 {else}
