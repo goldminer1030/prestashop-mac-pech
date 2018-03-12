@@ -1084,6 +1084,35 @@ a:hover {
   color: #000000;
 }
 
+.footer-product {
+  margin-bottom: 10px;
+}
+.footer-product .footer-product-thumbnail {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+}
+.footer-product .footer-product-thumbnail img {
+  width: 100%;
+}
+.footer-product .footer-product-desc {
+  display: inline-block;
+  width: calc(100% - 80px);
+}
+.footer-product .footer-product-desc .footer-product-title {
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.71;
+  letter-spacing: 1.4px;
+  color: #1d4a42;
+}
+.footer-product .footer-product-desc .footer-product-price {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 1.6px;
+  color: #595959;
+}
+
 .margin-bottom-sm {
   margin-bottom: 20px;
 }
