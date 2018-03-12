@@ -192,6 +192,9 @@ a:hover {
   background: transparent;
   text-align: center;
 }
+#pagenotfound #main .page-header h1 {
+  text-align: center;
+}
 
 .bg-main {
   background-color: #fbfbfb;
