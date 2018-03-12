@@ -1057,6 +1057,33 @@ a:hover {
   color: #1d4a42;
 }
 
+.filter-by-brand-title {
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 1.7px;
+  color: #1d4a42;
+}
+.filter-by-brand {
+  display: inline-block;
+  width: calc(50% - 3px);
+}
+.filter-by-brand .brand-img {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+}
+.filter-by-brand .brand-img img {
+  max-width: 100%;
+}
+.filter-by-brand .brand-name {
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  color: #000000;
+}
+
 .margin-bottom-sm {
   margin-bottom: 20px;
 }

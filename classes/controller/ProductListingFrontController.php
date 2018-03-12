@@ -158,13 +158,41 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
             }
         }
 
+        //--> goldminer 2018-03-10
+        $manufacturers = $this->getManufactures();
+        foreach ($manufacturers as &$manufacturer)
+		{		
+            if(file_exists(_PS_MANU_IMG_DIR_.$manufacturer['id_manufacturer'].'.jpg'))
+                $manufacturer['image'] = _THEME_MANU_DIR_.$manufacturer['id_manufacturer'].'.jpg';
+            else
+                $manufacturer['image'] = _THEME_IMG_DIR_.'default_logo.jpg';
+		}
+        //<-- goldminer 2018-03-10
+
         return $this->render('catalog/_partials/facets', array(
             'facets' => $facetsVar,
+            'manufacturers' => $manufacturers,
+            'link' => $this->context->link,
             'js_enabled' => $this->ajax,
             'activeFilters' => $activeFilters,
             'sort_order' => $result->getCurrentSortOrder()->toString(),
             'clear_all_link' => $this->updateQueryString(array('q' => null, 'page' => null))
         ));
+    }
+
+    /**
+     * goldminer 2018-03-10
+     */
+    public function getManufactures()
+    {
+        $sql = "SELECT id_manufacturer, name FROM "._DB_PREFIX_."manufacturer WHERE active = 1 ORDER BY name asc";
+        $ms = Db::getInstance()->executeS($sql);
+        if($ms)
+            foreach($ms as &$m)
+            {
+                $m['link_rewrite'] = Tools::link_rewrite($m['name']);
+            }
+        return $ms;
     }
 
     /**
