@@ -190,6 +190,7 @@ a:hover {
 #pagenotfound .page-not-found,
 #products .page-not-found {
   background: transparent;
+  text-align: center;
 }
 
 .bg-main {
