@@ -22,7 +22,7 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
- {function name="categories" nodes=[] depth=0}
+ {function name="category_tree" nodes=[] depth=0}
   {strip}
     {if $nodes|count}
       <ul class="category-sub-menu">
@@ -31,12 +31,12 @@
             {if $depth===0}
               <a href="{$node.link}">{$node.name}</a>
               {if $node.children}
-                {categories nodes=$node.children depth=$depth+1}
+                {category_tree nodes=$node.children depth=$depth+1}
               {/if}
             {else}
               <a class="category-sub-link" href="{$node.link}">{$node.name}</a>
               {if $node.children}
-                {categories nodes=$node.children depth=$depth+1}
+                {category_tree nodes=$node.children depth=$depth+1}
               {/if}
             {/if}
           </li>
@@ -54,7 +54,7 @@
         
         <div class="block-category-tree">
           <ul class="category-top-menu">
-            <li>{categories nodes=$categories.children}</li>
+            <li>{category_tree nodes=$categories.children}</li>
           </ul>
         </div>
 

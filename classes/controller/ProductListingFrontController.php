@@ -185,7 +185,8 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
      */
     public function getManufactures()
     {
-        $sql = "SELECT id_manufacturer, name FROM "._DB_PREFIX_."manufacturer WHERE active = 1 ORDER BY name asc";
+        // $sql = "SELECT id_manufacturer, name FROM "._DB_PREFIX_."manufacturer WHERE active = 1 ORDER BY name asc";
+        $sql = "SELECT id_manufacturer, name FROM "._DB_PREFIX_."manufacturer WHERE active = 1 AND id_manufacturer IN (SELECT id_manufacturer FROM "._DB_PREFIX_."product as p WHERE p.state = 1 GROUP BY id_manufacturer) ORDER BY name asc";
         $ms = Db::getInstance()->executeS($sql);
         if($ms)
             foreach($ms as &$m)
