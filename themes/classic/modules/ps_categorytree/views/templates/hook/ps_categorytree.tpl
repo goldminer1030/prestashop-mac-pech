@@ -33,12 +33,12 @@
               <div class="category-thumb-image">
                 <img src="{$node.thumb}" class="cimagex" alt="category thumb" />
               </div>
-              <a href="{$node.link}">{$node.name}</a>
+              <a href="{$node.link}">{$node.name|truncate:20:'...'}</a>
             {else}
               <div class="category-thumb-image">
                 <img src="{$node.thumb}" class="cimagex" alt="category thumb" />
               </div>
-              <a class="category-sub-link" href="{$node.link}">{$node.name}</a>
+              <a class="category-sub-link" href="{$node.link}">{$node.name|truncate:20:'...'}</a>
             {/if}
           </li>
         {/foreach}
