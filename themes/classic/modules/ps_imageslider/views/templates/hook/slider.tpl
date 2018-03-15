@@ -52,7 +52,7 @@
       <div class="home_categories">
         <h2>{l s='Categories' mod='homecategories'}</h2>
         
-        <div class="block-category-tree">
+        <div class="block-category-tree" >
           <ul class="category-top-menu">
             <li>{category_tree nodes=$categories.children}</li>
           </ul>

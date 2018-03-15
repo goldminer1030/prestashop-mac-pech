@@ -889,6 +889,7 @@ class FrontControllerCore extends Controller
     public function setMedia()
     {
         $this->registerStylesheet('theme-main', '/assets/css/theme.css', ['media' => 'all', 'priority' => 50]);
+        $this->registerStylesheet('scrollbar', '/assets/css/jquery.mCustomScrollbar.css', ['media' => 'all', 'priority' => 1000]);
         $this->registerStylesheet('theme-custom', '/assets/css/custom.css', ['media' => 'all', 'priority' => 1000]);
 
         if ($this->context->language->is_rtl) {
@@ -898,6 +899,7 @@ class FrontControllerCore extends Controller
         $this->registerJavascript('corejs', '/themes/core.js', ['position' => 'bottom', 'priority' => 0]);
         $this->registerJavascript('theme-main', '/assets/js/theme.js', ['position' => 'bottom', 'priority' => 50]);
         $this->registerJavascript('cimagex', '/assets/js/cimagex.alpha.js', ['position' => 'bottom', 'priority' => 100]);
+        $this->registerJavascript('scrollbar', '/assets/js/jquery.mCustomScrollbar.concat.min.js', ['position' => 'bottom', 'priority' => 100]);
         $this->registerJavascript('yengin', '/assets/js/yengin.js', ['position' => 'bottom', 'priority' => 100]);
         $this->registerJavascript('theme-custom', '/assets/js/custom.js', ['position' => 'bottom', 'priority' => 1000]);
 

@@ -5,5 +5,7 @@
 (function ($) {
   $(document).ready(function () {
     cimagex(yengin('.cimagex'));
+    
+    $('.block-category-tree').mCustomScrollbar({ theme: "rounded" });
   });
 })(jQuery);
