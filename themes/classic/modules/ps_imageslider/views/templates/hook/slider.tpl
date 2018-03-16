@@ -29,7 +29,9 @@
         {foreach from=$nodes item=node}
           <li class="{$node.select}" data-depth="{$depth}">
             {if $depth===0}
+              {if $is_maindomain == 'true'}
               <a href="{$node.link}">{$node.name}</a>
+              {/if}
               {if $node.children}
                 {category_tree nodes=$node.children depth=$depth+1}
               {/if}

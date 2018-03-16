@@ -581,6 +581,8 @@ class Ps_ImageSlider extends Module implements WidgetInterface
         $current_cat_id = Tools::getValue('id_category');
         $current_cat_name = $this->getCurrentCategoryProp($categories, $current_cat_id, 'name');
         $current_cat_desc = $this->getCurrentCategoryProp($categories, $current_cat_id, 'desc');
+        $base_url = _PS_BASE_URL_;
+        $domain = Context::getContext()->shop->getBaseURL(true);
 
         return [
             'homeslider' => [
@@ -592,6 +594,9 @@ class Ps_ImageSlider extends Module implements WidgetInterface
             'category_thumb' => _THEME_CAT_DIR_.$current_cat_id.'.jpg',
             'category_name' => $current_cat_name,
             'category_desc' => $current_cat_desc,
+            'base_url' => $base_url,
+            'domain' => $domain,
+            'is_maindomain' => $base_url == $domain ? 'true' : 'false',
             'static_index' => $int_imageIndex,
             'categories' => $categories,
         ];
