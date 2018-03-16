@@ -637,7 +637,7 @@ a:hover {
 }
 
 .home_categories {
-  height: 332px;
+  height: 336px;
   padding: 25px 15px 25px 15px;
   background-color: #1d4a42;
 }
@@ -874,8 +874,8 @@ a:hover {
   background-color: #fbfbfb;
   border: solid 3px #aebdba;
 }
-.carousel-wrapper {
-  position: relative;
+#wrapper .breadcrumb[data-depth="1"] {
+  display: block !important;
 }
 #wrapper .breadcrumb {
   position: absolute;
@@ -1079,6 +1079,20 @@ a:hover {
 .block-category-tree ul ul {
   margin-left: 10px;
 }
+.top-banner-wrapper {
+  position: relative;
+}
+.top-banner-wrapper .category-banner-texts {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  background-color: rgba(255,255,255,.4);
+}
+.top-banner-wrapper .category-banner {
+  height: 120px;
+}
 .carousel {
   box-shadow: none;
 }
@@ -1093,10 +1107,12 @@ a:hover {
   color: #1d4a42;
   max-width: 100px;
 }
+.top-banner-wrapper .category-banner-texts .category-name,
 .carousel .caption .display-1 {
   font-family: 'bebasregular';
   font-size: 25px;
 }
+.top-banner-wrapper .category-banner-texts p,
 .carousel .caption .caption-description h2,
 .carousel .caption .caption-description p {
   font-size: 6px;
@@ -1190,8 +1206,17 @@ a:hover {
     top: 10px;
     max-width: 190px;
   }
+  .top-banner-wrapper .category-banner-texts .category-name,
   .carousel .caption .display-1 {
     font-size: 50px;
+  }
+  .top-banner-wrapper .category-banner-texts p,
+  .carousel .caption .caption-description h2,
+  .carousel .caption .caption-description p {
+    font-size: 12px;
+  }
+  .top-banner-wrapper .category-banner {
+    height: 200px;
   }
 }
 @media (min-width: 768px) {
@@ -1260,8 +1285,14 @@ a:hover {
     top: 15px;
     max-width: 240px;
   }
+  .top-banner-wrapper .category-banner-texts .category-name,
   .carousel .caption .display-1 {
     font-size: 65px;
+  }
+  .top-banner-wrapper .category-banner-texts p,
+  .carousel .caption .caption-description h2,
+  .carousel .caption .caption-description p {
+    font-size: 14px;
   }
   .filter-by-brand .brand-img {
     width: calc(50% - 5px);
@@ -1269,6 +1300,9 @@ a:hover {
   .filter-by-brand .brand-name {
     display: inline-block;
     width: calc(50% - 5px);
+  }
+  .top-banner-wrapper .category-banner {
+    height: 255px;
   }
 }
 @media (min-width: 992px) {
@@ -1337,8 +1371,9 @@ a:hover {
     top: 13px;
     max-width: 250px;
   }
+  .top-banner-wrapper .category-banner-texts .category-name,
   .carousel .caption .display-1 {
-    font-size: 68px;
+    font-size: 50px;
   }
   .filter-by-brand .brand-img {
     width: auto;
@@ -1346,6 +1381,9 @@ a:hover {
   .filter-by-brand .brand-name {
     display: block;
     width: auto;
+  }
+  .top-banner-wrapper .category-banner {
+    height: 266px;
   }
 }
 @media (min-width: 1200px) {
@@ -1463,12 +1501,17 @@ a:hover {
     top: 10px;
     max-width: 190px;
   }
+  .top-banner-wrapper .category-banner-texts .category-name,
   .carousel .caption .display-1 {
-    font-size: 50px;
+    font-size: 68px;
   }
+  .top-banner-wrapper .category-banner-texts p,
   .carousel .caption .caption-description h2,
   .carousel .caption .caption-description p {
-    font-size: 6px;
+    font-size: 15px;
+  }
+  .top-banner-wrapper .category-banner {
+    height: 320px;
   }
 }
 @media (min-width: 1316px) {
@@ -1495,8 +1538,17 @@ a:hover {
     top: 20px;
     max-width: 340px;
   }
+  .top-banner-wrapper .category-banner-texts .category-name,
   .carousel .caption .display-1 {
     font-size: 85px;
+  }
+  .top-banner-wrapper .category-banner-texts p,
+  .carousel .caption .caption-description h2,
+  .carousel .caption .caption-description p {
+    font-size: 20px;
+  }
+  .top-banner-wrapper .category-banner {
+    height: 355px;
   }
 }
 

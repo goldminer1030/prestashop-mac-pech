@@ -577,6 +577,11 @@ class Ps_ImageSlider extends Module implements WidgetInterface
             $int_imageIndex = -1;
         }
 
+        $categories = $this->getCategories($category);
+        $current_cat_id = Tools::getValue('id_category');
+        $current_cat_name = $this->getCurrentCategoryProp($categories, $current_cat_id, 'name');
+        $current_cat_desc = $this->getCurrentCategoryProp($categories, $current_cat_id, 'desc');
+
         return [
             'homeslider' => [
                 'speed' => $config['HOMESLIDER_SPEED'],
@@ -584,9 +589,28 @@ class Ps_ImageSlider extends Module implements WidgetInterface
                 'wrap' => $config['HOMESLIDER_WRAP'] ? 'true' : 'false',
                 'slides' => $slides,
             ],
+            'category_thumb' => _THEME_CAT_DIR_.$current_cat_id.'.jpg',
+            'category_name' => $current_cat_name,
+            'category_desc' => $current_cat_desc,
             'static_index' => $int_imageIndex,
-            'categories' => $this->getCategories($category),//$root_cat->getSubCategories($this->context->cookie->id_lang),
+            'categories' => $categories,
         ];
+    }
+
+    private function getCurrentCategoryProp($array, $find, $prop){
+        if( $array['id'] == $find ) {
+            return $array[$prop];
+        }
+        if( empty($array['children']) ) {
+            return null;
+        }
+
+        foreach($array['children'] as $child) {
+            $result = $this->getCurrentCategoryProp($child, $find, $prop);
+            if( $result !== null ) {
+                return $result;
+            }
+        }
     }
 
     private function getCategories($category)
