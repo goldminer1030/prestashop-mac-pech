@@ -126,6 +126,15 @@ li.product-flag {
 .btn-primary:hover {
   background-color: #1d9d50;
 }
+.cart-grid-body a.label:hover,
+.search-widget form input[type=text]:focus+button .search,
+.search-widget form button[type=submit] .search,
+.search-widget form button[type=submit] .search:hover {
+  color: #1d9d50;
+}
+.cart-grid-body .cart-overview {
+  padding: 15px 0;
+}
 .search-widget form input[type=text]:focus,
 .form-control:focus,
 .input-group.focus {
@@ -155,8 +164,18 @@ a:hover {
 #header .header-nav .mobile {
   padding: 0 15px 0 25px;
 }
+#header .header-nav .cart-preview.active {
+  background: #1d9d50;
+}
+#header .header-nav .cart-preview.active .cart-preview-body .cart-products-title,
+#header .header-nav .cart-preview.active .cart-preview-body .cart-products-price {
+  color: #fff;
+}
 #menu-icon {
   display: none;
+}
+.header-top .search-widget {
+  padding: 0 30px;
 }
 
 .top-title-wrapper {
@@ -174,8 +193,8 @@ a:hover {
   margin-right: auto;
   margin-bottom: 50px;
   padding-top: 45px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 .page-wrapper:after {
   content: "";
@@ -183,7 +202,7 @@ a:hover {
   clear: both;
 }
 .body-container {
-  padding: 0 30px;
+  padding: 0 15px;
 }
 
 #products .all-product-link,
@@ -233,6 +252,7 @@ a:hover {
 
 .header-contact-wrapper {
   margin-bottom: 3px;
+  padding: 0 15px;
 }
 .header-contact-wrapper .header-contact-icon {
   display: inline-block;
@@ -696,11 +716,13 @@ a:hover {
   color: #1d4a42;
 }
 .top-link-bar.main-domain .top-link-wrapper .top-link-image {
+  display: none;
   position: absolute;
   top: -12px;
   right: 10px;
 }
 .top-link-bar.sub-domain .top-link-wrapper .top-link-image {
+  display: none;
   position: absolute;
   top: -20px;
   right: 10px;
@@ -715,9 +737,10 @@ a:hover {
   border-right: transparent;
   font-weight: 600;
 }
-.product-quantity .bootstrap-touchspin {
+.bootstrap-touchspin {
   width: 145px;
 }
+.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-up,
 .product-quantity .bootstrap-touchspin .bootstrap-touchspin-up {
   float: right;
   margin: 0 -1px 0 -1px;
@@ -725,6 +748,7 @@ a:hover {
   width: 44px;
   line-height: 21px;
 }
+.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-down,
 .product-quantity .bootstrap-touchspin .bootstrap-touchspin-down {
   float: left;
   margin: 0 -1px 0 0;
@@ -732,10 +756,19 @@ a:hover {
   width: 44px;
   line-height: 21px;
 }
+.bootstrap-touchspin .input-group-btn-vertical i,
 .product-quantity .bootstrap-touchspin .btn i {
   top: 10px;
   left: 13px;
   font-size: 17px;
+  font-weight: 600;
+}
+.bootstrap-touchspin input.form-control,
+.bootstrap-touchspin input.input-group {
+  height: 2.75rem;
+  text-align: center;
+  border-left: transparent;
+  border-right: transparent;
   font-weight: 600;
 }
 .product-content-container {
@@ -805,6 +838,19 @@ a:hover {
 .btn-tertiary {
   box-shadow: none;
   background-color: #1d4a42;
+  color: #fff;
+}
+.btn-secondary.focus,
+.btn-secondary:focus,
+.btn-secondary:hover,
+.btn-tertiary:focus,
+.btn-tertiary:hover,
+.focus.btn-tertiary {
+  background-color: #1d9d50;
+  color: #fff;
+}
+#blockcart-modal .product-name {
+  color: #1d9d50;
 }
 .bootstrap-touchspin {
   box-shadow: none;
@@ -1066,6 +1112,10 @@ a:hover {
   background: transparent;
   box-shadow: none;
 }
+.page-content.page-cms {
+  padding: 0;
+  background-color: transparent;
+}
 
 .card {
   box-shadow: none;
@@ -1263,6 +1313,11 @@ a:hover {
 @media (min-width: 576px) {
   .page-wrapper {
     width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .body-container {
+    padding: 0 30px;
   }
   .block-categories .category-thumb-image {
     height: 55px;
@@ -1393,6 +1448,16 @@ a:hover {
     float: none;
   }
   .product-quantity {
+    display: block;
+  }
+  .header-top .search-widget {
+    padding: 15px;
+  }
+  .header-contact-wrapper {
+    padding: 0;
+  }
+  .top-link-bar.main-domain .top-link-wrapper .top-link-image,
+  .top-link-bar.sub-domain .top-link-wrapper .top-link-image {
     display: block;
   }
 }
