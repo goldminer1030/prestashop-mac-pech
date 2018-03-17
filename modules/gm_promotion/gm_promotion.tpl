@@ -2,7 +2,7 @@
 *
 *  @author goldminer1030
 *}
-<div class="gm_products">
+<div class="gm_promotion">
   {if $products|count > 0}
     {foreach from=$products item="product"}
     <div class="footer-product-wrapper">
@@ -21,6 +21,6 @@
     </div>
     {/foreach}
   {else}
-    <p>Découvrez en avant première nos nouveautés très prochainement !</p>
+    <p>Retrouvez nos prochaines promotions ici !</p>
   {/if}
 </div>

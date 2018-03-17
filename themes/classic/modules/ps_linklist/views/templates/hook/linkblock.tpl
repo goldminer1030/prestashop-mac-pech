@@ -24,7 +24,7 @@
  *}
 <div class="col-md-6 col-lg-3 links">
   <h4 class="footer-block-title hidden-sm-down">PROMOTIONS</h4>
-  {hook h='displayFooterFeaturedProducts'}
+  {hook h='displayFooterPromotionProducts'}
 </div>
 <div class="col-md-6 col-lg-3 links">
   <h4 class="footer-block-title hidden-sm-down">NOUVEAUTÉS</h4>
