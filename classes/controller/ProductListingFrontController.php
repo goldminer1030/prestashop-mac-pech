@@ -160,13 +160,6 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
 
         //--> goldminer 2018-03-10
         $manufacturers = $this->getManufactures();
-        foreach ($manufacturers as &$manufacturer)
-		{		
-            if(file_exists(_PS_MANU_IMG_DIR_.$manufacturer['id_manufacturer'].'.jpg'))
-                $manufacturer['image'] = _THEME_MANU_DIR_.$manufacturer['id_manufacturer'].'.jpg';
-            else
-                $manufacturer['image'] = _THEME_IMG_DIR_.'default_logo.jpg';
-		}
         //<-- goldminer 2018-03-10
 
         return $this->render('catalog/_partials/facets', array(
@@ -183,15 +176,28 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
     /**
      * goldminer 2018-03-10
      */
-    public function getManufactures()
+    public function getManufactures($products = NULL)
     {
-        // $sql = "SELECT id_manufacturer, name FROM "._DB_PREFIX_."manufacturer WHERE active = 1 ORDER BY name asc";
+        // find all manufacturers
         $sql = "SELECT id_manufacturer, name FROM "._DB_PREFIX_."manufacturer WHERE active = 1 AND id_manufacturer IN (SELECT p.id_manufacturer FROM "._DB_PREFIX_."product as p WHERE p.active = 1 GROUP BY p.id_manufacturer) ORDER BY name asc";
+        if($products) {
+            // if there are products, find manufacturers linked to product
+            $products_array = implode(', ', array_map(function ($entry) {
+                return $entry['id_manufacturer'];
+            }, $products['products']));
+            $sql = "SELECT id_manufacturer, name FROM "._DB_PREFIX_."manufacturer WHERE active = 1 AND id_manufacturer IN (" . $products_array . ") ORDER BY name asc";
+        }
+
         $ms = Db::getInstance()->executeS($sql);
         if($ms)
             foreach($ms as &$m)
             {
                 $m['link_rewrite'] = Tools::link_rewrite($m['name']);
+
+                if(file_exists(_PS_MANU_IMG_DIR_.$m['id_manufacturer'].'.jpg'))
+                    $m['image'] = _THEME_MANU_DIR_.$m['id_manufacturer'].'.jpg';
+                else
+                    $m['image'] = _THEME_IMG_DIR_.'default_logo.jpg';
             }
         return $ms;
     }
@@ -566,8 +572,10 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
             $this->ajaxDie(json_encode($this->getAjaxProductSearchVariables()));
         } else {
             $variables = $this->getProductSearchVariables();
+            $manufacturers = $this->getManufactures($variables);
             $this->context->smarty->assign(array(
                 'listing' => $variables,
+                'manufacturers' => $manufacturers,
             ));
             $this->setTemplate($template, $params, $locale);
         }

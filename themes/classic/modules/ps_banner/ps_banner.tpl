@@ -24,7 +24,7 @@
  *}
 <div class="banner-wrapper">
   {if isset($banner_img)}
-    <img class="cimagex" src="{$banner_img}" alt="{$banner_desc}" title="{$banner_desc}" class="img-fluid">
+    <img class="cimagex" src="{$banner_img}" alt="{$banner_desc}" title="{$banner_desc}">
   {/if}
   <div class="banner-title-wrapper">
     <p class="banner-main-title">LES CONSEILS de Pascal Martin</p>

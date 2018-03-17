@@ -7,5 +7,17 @@
     cimagex(yengin('.cimagex'));
     
     $('.block-category-tree').mCustomScrollbar({ theme: "rounded" });
+
+    $(".products .filter-wrapper a").click(function (e) {
+      e.preventDefault();
+      var brand = $(this).data('brand-id');
+      $('.products .product-miniature').hide();
+      $('.products [data-brand-id="' + brand + '"]').show();
+    });
+
+    jQuery.ui.autocomplete.prototype._resizeMenu = function () {
+      var ul = this.menu.element;
+      ul.outerWidth(this.element.outerWidth());
+    }
   });
 })(jQuery);

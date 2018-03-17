@@ -62,7 +62,7 @@
       <div class="cr"></div>
     </div>
   </div>
-  <div class="col-lg-9 no-padding-lg">
+  <div class="col-lg-9 no-left-padding-lg">
     <div class="top-link-bar-wrapper clearfix">
       <div class="top-link-bar main-domain">
         <div class="top-link-wrapper">
