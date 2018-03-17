@@ -40,7 +40,8 @@
           </ul>
       </div>
     </div>
-    <div class="col-lg-9 col-sm-12 col-xs-12 no-right-padding-lg">
+    <div class="col-lg-9 col-sm-12 col-xs-12">
+    {hook h='displayProductSubCategories'}
     {/if}
     {foreach from=$listing.products item="product"}
       {block name='product_miniature'}

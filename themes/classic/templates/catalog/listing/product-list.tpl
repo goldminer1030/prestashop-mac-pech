@@ -27,8 +27,6 @@
 {block name='content'}
   <section id="main">
 
-    {hook h='displayProductSubCategories'}
-
     <section id="products">
       {if $listing.products|count}
 

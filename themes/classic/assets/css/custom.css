@@ -993,6 +993,9 @@ a:hover {
   box-shadow: none;
   background: transparent;
 }
+.block-categories .category-sub-menu {
+  margin-top: 0;
+}
 .block-categories .category-sub-menu li {
   display: inline-block;
   position: relative;
