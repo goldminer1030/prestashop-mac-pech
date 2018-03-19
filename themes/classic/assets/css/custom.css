@@ -204,6 +204,13 @@ a:hover {
 .body-container {
   padding: 0 15px;
 }
+body#checkout section.checkout-step {
+  box-shadow: none;
+  background-color: transparent;
+}
+body#checkout section.checkout-step .delivery-option {
+  background-color: transparent;
+}
 
 #products .all-product-link,
 .featured-products .all-product-link,
@@ -459,6 +466,27 @@ a:hover {
   background-color: transparent;
 }
 
+body#checkout a:hover,
+#header .header-nav .user-info .logged {
+  color: #1d9d50;
+}
+.custom-radio input[type=radio]:checked+span {
+  background-color: #1d9d50;
+}
+body#checkout section.checkout-step .address-item.selected {
+  border-color: #1d9d50;
+}
+body#checkout #header .header-nav,
+body#checkout #footer {
+  box-shadow: none;
+  background-color: transparent;
+}
+body#checkout #header .header-nav .logo {
+  max-height: 100%;
+}
+body#checkout #header .header-nav {
+  padding-top: 0;
+}
 .footer-copyright {
   margin-bottom: 40px;
   font-size: 14px;
