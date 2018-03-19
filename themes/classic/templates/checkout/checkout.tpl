@@ -40,7 +40,7 @@
     <div class="page-wrapper">
       <header id="header">
         {block name='header'}
-          {include file='checkout/_partials/header.tpl'}
+          {include file='_partials/header.tpl'}
         {/block}
       </header>
 
