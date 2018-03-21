@@ -158,48 +158,13 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
             }
         }
 
-        //--> goldminer 2018-03-10
-        $manufacturers = $this->getManufactures();
-        //<-- goldminer 2018-03-10
-
         return $this->render('catalog/_partials/facets', array(
             'facets' => $facetsVar,
-            'manufacturers' => $manufacturers,
-            'link' => $this->context->link,
             'js_enabled' => $this->ajax,
             'activeFilters' => $activeFilters,
             'sort_order' => $result->getCurrentSortOrder()->toString(),
             'clear_all_link' => $this->updateQueryString(array('q' => null, 'page' => null))
         ));
-    }
-
-    /**
-     * goldminer 2018-03-10
-     */
-    public function getManufactures($products = NULL)
-    {
-        // find all manufacturers
-        $sql = "SELECT id_manufacturer, name FROM "._DB_PREFIX_."manufacturer WHERE active = 1 AND id_manufacturer IN (SELECT p.id_manufacturer FROM "._DB_PREFIX_."product as p WHERE p.active = 1 GROUP BY p.id_manufacturer) ORDER BY name asc";
-        if($products) {
-            // if there are products, find manufacturers linked to product
-            $products_array = implode(', ', array_map(function ($entry) {
-                return $entry['id_manufacturer'];
-            }, $products['products']));
-            $sql = "SELECT id_manufacturer, name FROM "._DB_PREFIX_."manufacturer WHERE active = 1 AND id_manufacturer IN (" . $products_array . ") ORDER BY name asc";
-        }
-
-        $ms = Db::getInstance()->executeS($sql);
-        if($ms)
-            foreach($ms as &$m)
-            {
-                $m['link_rewrite'] = Tools::link_rewrite($m['name']);
-
-                if(file_exists(_PS_MANU_IMG_DIR_.$m['id_manufacturer'].'.jpg'))
-                    $m['image'] = _THEME_MANU_DIR_.$m['id_manufacturer'].'.jpg';
-                else
-                    $m['image'] = _THEME_IMG_DIR_.'default_logo.jpg';
-            }
-        return $ms;
     }
 
     /**
@@ -537,7 +502,7 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
     protected function prepareProductArrayForAjaxReturn(array $products)
     {
         $allowed_properties = array('id_product', 'price', 'reference', 'active', 'description_short', 'link',
-            'link_rewrite', 'name', 'manufacturer_name', 'position', 'url', 'canonical_url', 'add_to_cart_url',
+            'link_rewrite', 'name', 'manufacturer_name', 'position', 'cover', 'url', 'canonical_url', 'add_to_cart_url',
             'has_discount', 'discount_type', 'discount_percentage', 'discount_percentage_absolute', 'discount_amount',
             'price_amount', 'regular_price_amount', 'regular_price', 'discount_to_display', 'labels', 'main_variants',
             'unit_price', 'tax_name', 'rate'
@@ -572,10 +537,8 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
             $this->ajaxDie(json_encode($this->getAjaxProductSearchVariables()));
         } else {
             $variables = $this->getProductSearchVariables();
-            $manufacturers = $this->getManufactures($variables);
             $this->context->smarty->assign(array(
                 'listing' => $variables,
-                'manufacturers' => $manufacturers,
             ));
             $this->setTemplate($template, $params, $locale);
         }

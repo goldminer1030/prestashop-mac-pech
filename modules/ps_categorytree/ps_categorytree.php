@@ -149,7 +149,6 @@ class Ps_CategoryTree extends Module implements WidgetInterface
             'id' => $id_category,
             'link' => $link,
             'name' => $name,
-            'thumb' => _THEME_CAT_DIR_.$id_category.'.jpg',
             'desc'=> $desc,
             'children' => $children
         ];
