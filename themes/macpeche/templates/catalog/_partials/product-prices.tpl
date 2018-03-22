@@ -36,7 +36,7 @@
         <meta itemprop="priceCurrency" content="{$currency.iso_code}">
 
         <div class="current-price">
-          <span itemprop="price" content="{$product.price_amount}">{$product.price}</span>
+          <span class="price-amount" itemprop="price" content="{$product.price_amount}">{$product.price}</span>
 
           {if $product.has_discount}
             {hook h='displayProductPriceBlock' product=$product type="old_price"}

@@ -686,6 +686,18 @@ body#checkout #header .header-nav {
 .product-miniature .thumbnail-container:hover .highlighted-informations.no-variants{
   bottom: 6.375rem;
 }
+.current-price .price-amount {
+  line-height: 35px;
+  vertical-align: bottom;
+}
+.current-price .regular-price {
+  line-height: 30px;
+  vertical-align: bottom;
+}
+.has-discount .discount {
+  line-height: 35px;
+  vertical-align: middle;
+}
 
 .quick-add-to-cart {
   display: none;
@@ -903,6 +915,7 @@ body#checkout #header .header-nav {
   box-shadow: none;
 }
 .product-actions .add-to-cart {
+  min-width: 135px;
   font-size: 12px;
   font-weight: 800;
   line-height: 1.32;
@@ -986,7 +999,7 @@ body#checkout #header .header-nav {
 .secure-payment-wrapper {
   display: inline-block;
   margin-top: 25px;
-  margin-right: 25px;
+  margin-right: 15px;
 }
 .social-sharing {
   display: inline-block;
