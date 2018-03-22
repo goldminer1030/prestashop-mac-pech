@@ -187,8 +187,6 @@ class FrontControllerCore extends Controller
             $this->ssl = true;
         }
 
-        $this->guestAllowed = Configuration::get('PS_GUEST_CHECKOUT_ENABLED');
-
         if (isset($useSSL)) {
             $this->ssl = $useSSL;
         } else {
@@ -313,7 +311,7 @@ class FrontControllerCore extends Controller
             $this->context->cookie->id_cart = (int) $id_cart;
         }
 
-        if ($this->auth && !$this->context->customer->isLogged()) {
+        if ($this->auth && !$this->context->customer->isLogged($this->guestAllowed)) {
             Tools::redirect('index.php?controller=authentication'.($this->authRedirection ? '&back='.$this->authRedirection : ''));
         }
 
@@ -671,7 +669,7 @@ class FrontControllerCore extends Controller
             $html = $this->context->smarty->fetch($content, null, $this->getLayout());
         }
 
-        Hook::exec('actionOutputHTMLBefore',  array('html' => &$html));
+        Hook::exec('actionOutputHTMLBefore', array('html' => &$html));
         echo trim($html);
     }
 
@@ -712,6 +710,7 @@ class FrontControllerCore extends Controller
 
                 $this->registerStylesheet('theme-error', '/assets/css/error.css', ['media' => 'all', 'priority' => 50]);
                 $this->context->smarty->assign(array(
+                    'urls' => $this->getTemplateVarUrls(),
                     'shop' => $this->getTemplateVarShop(),
                     'HOOK_MAINTENANCE' => Hook::exec('displayMaintenance', array()),
                     'maintenance_text' => Configuration::get('PS_MAINTENANCE_TEXT', (int) $this->context->language->id),
@@ -733,6 +732,7 @@ class FrontControllerCore extends Controller
 
         $this->registerStylesheet('theme-error', '/assets/css/error.css', ['media' => 'all', 'priority' => 50]);
         $this->context->smarty->assign(array(
+            'urls' => $this->getTemplateVarUrls(),
             'shop' => $this->getTemplateVarShop(),
             'stylesheets' => $this->getStylesheets(),
         ));
@@ -889,7 +889,6 @@ class FrontControllerCore extends Controller
     public function setMedia()
     {
         $this->registerStylesheet('theme-main', '/assets/css/theme.css', ['media' => 'all', 'priority' => 50]);
-        $this->registerStylesheet('scrollbar', '/assets/css/jquery.mCustomScrollbar.css', ['media' => 'all', 'priority' => 1000]);
         $this->registerStylesheet('theme-custom', '/assets/css/custom.css', ['media' => 'all', 'priority' => 1000]);
 
         if ($this->context->language->is_rtl) {
@@ -898,9 +897,6 @@ class FrontControllerCore extends Controller
 
         $this->registerJavascript('corejs', '/themes/core.js', ['position' => 'bottom', 'priority' => 0]);
         $this->registerJavascript('theme-main', '/assets/js/theme.js', ['position' => 'bottom', 'priority' => 50]);
-        $this->registerJavascript('cimagex', '/assets/js/cimagex.alpha.js', ['position' => 'bottom', 'priority' => 100]);
-        $this->registerJavascript('scrollbar', '/assets/js/jquery.mCustomScrollbar.concat.min.js', ['position' => 'bottom', 'priority' => 100]);
-        $this->registerJavascript('yengin', '/assets/js/yengin.js', ['position' => 'bottom', 'priority' => 100]);
         $this->registerJavascript('theme-custom', '/assets/js/custom.js', ['position' => 'bottom', 'priority' => 1000]);
 
         $assets = $this->context->shop->theme->getPageSpecificAssets($this->php_self);
@@ -1328,6 +1324,8 @@ class FrontControllerCore extends Controller
         }
 
         $layout = $this->context->shop->theme->getLayoutRelativePathForPage($entity);
+        
+        $content_only = (int) Tools::getValue('content_only');
 
         if ($overridden_layout = Hook::exec(
             'overrideLayoutTemplate',
@@ -1336,12 +1334,13 @@ class FrontControllerCore extends Controller
                 'entity' => $entity,
                 'locale' => $this->context->language->locale,
                 'controller' => $this,
+                'content_only' => $content_only,
             )
         )) {
             return $overridden_layout;
         }
 
-        if ((int) Tools::getValue('content_only')) {
+        if ($content_only) {
             $layout = 'layouts/layout-content-only.tpl';
         }
 
@@ -1850,6 +1849,7 @@ class FrontControllerCore extends Controller
 
     protected function makeCustomerForm()
     {
+        $guestAllowedCheckout = Configuration::get('PS_GUEST_CHECKOUT_ENABLED');
         $form = new CustomerForm(
             $this->context->smarty,
             $this->context,
@@ -1859,12 +1859,12 @@ class FrontControllerCore extends Controller
                 $this->context,
                 $this->get('hashing'),
                 $this->getTranslator(),
-                $this->guestAllowed
+                $guestAllowedCheckout
             ),
             $this->getTemplateVarUrls()
         );
 
-        $form->setGuestAllowed($this->guestAllowed);
+        $form->setGuestAllowed($guestAllowedCheckout);
 
         $form->setAction($this->getCurrentURL());
 

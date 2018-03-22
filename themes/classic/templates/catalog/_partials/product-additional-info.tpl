@@ -22,10 +22,6 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div class="product-additional-info clearfix">
-  <div class="secure-payment-wrapper">
-    <p>Paiement sécurisé</p>
-    <img src="{$urls.img_url}secure-payment.png" alt="secure payment">
-  </div>
+<div class="product-additional-info">
   {hook h='displayProductAdditionalInfo' product=$product}
 </div>

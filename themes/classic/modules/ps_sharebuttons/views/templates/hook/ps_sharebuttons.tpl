@@ -22,18 +22,16 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+
 {block name='social_sharing'}
   {if $social_share_links}
     <div class="social-sharing">
-      <p>{l s='Share' d='Shop.Theme.Actions'}</p>
-      <div class="social-wrapper">
+      <span>{l s='Share' d='Shop.Theme.Actions'}</span>
+      <ul>
         {foreach from=$social_share_links item='social_share_link'}
-          <a href="{$social_share_link.url}" title="{$social_share_link.label}" target="_blank">
-            <img src="{$urls.img_url}share-{$social_share_link.class}.png" alt="{$social_share_link.label}">
-            <span>{$social_share_link.label}</span>
-          </a>
+          <li class="{$social_share_link.class} icon-gray"><a href="{$social_share_link.url}" class="text-hide" title="{$social_share_link.label}" target="_blank">{$social_share_link.label}</a></li>
         {/foreach}
-      </div>
+      </ul>
     </div>
   {/if}
 {/block}

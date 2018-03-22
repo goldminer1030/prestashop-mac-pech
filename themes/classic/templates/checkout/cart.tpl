@@ -76,6 +76,10 @@
           </div>
         {/block}
 
+        {block name='hook_reassurance'}
+          {hook h='displayReassurance'}
+        {/block}
+
       </div>
 
     </div>

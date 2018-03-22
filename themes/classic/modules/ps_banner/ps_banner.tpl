@@ -22,16 +22,10 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div class="banner-wrapper">
+<a class="banner" href="{$banner_link}" title="{$banner_desc}">
   {if isset($banner_img)}
-    <img class="cimagex" src="{$banner_img}" alt="{$banner_desc}" title="{$banner_desc}">
+    <img src="{$banner_img}" alt="{$banner_desc}" title="{$banner_desc}" class="img-fluid">
+  {else}
+    <span>{$banner_desc}</span>
   {/if}
-  <div class="banner-title-wrapper">
-    <p class="banner-main-title">LES CONSEILS de Pascal Martin</p>
-    <p class="banner-sub-title">Moniteur-Guide de Pêche Professionnel Spécialisé Pêche à la Mouche</p>
-  </div>
-  <div class="banner-button-wrapper">
-    <a href="{$banner_link}" class="banner-link">VOIR LE BLOG</a>
-    <p class="banner-credit-photo">Crédit Photo : Pascal Martin</p>
-  </div>
-</div>
+</a>

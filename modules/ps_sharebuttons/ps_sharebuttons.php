@@ -173,14 +173,6 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
         }
 
         $sharing_img = addcslashes($this->context->link->getImageLink($product->link_rewrite, $image_cover_id), "'");
-        
-        if (Configuration::get('PS_SC_TWITTER')) {
-            $social_share_links['twitter'] = array(
-                'label' => $this->trans('Tweet', array(), 'Modules.Sharebuttons.Shop'),
-                'class' => 'twitter',
-                'url' => 'https://twitter.com/intent/tweet?text='.$sharing_name.' '.$sharing_url,
-            );
-        }
 
         if (Configuration::get('PS_SC_FACEBOOK')) {
             $social_share_links['facebook'] = array(
@@ -189,7 +181,15 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
                 'url' => 'http://www.facebook.com/sharer.php?u='.$sharing_url,
             );
         }
-        
+
+        if (Configuration::get('PS_SC_TWITTER')) {
+            $social_share_links['twitter'] = array(
+                'label' => $this->trans('Tweet', array(), 'Modules.Sharebuttons.Shop'),
+                'class' => 'twitter',
+                'url' => 'https://twitter.com/intent/tweet?text='.$sharing_name.' '.$sharing_url,
+            );
+        }
+
         if (Configuration::get('PS_SC_GOOGLE')) {
             $social_share_links['googleplus'] = array(
                 'label' => $this->trans('Google+', array(), 'Modules.Sharebuttons.Shop'),

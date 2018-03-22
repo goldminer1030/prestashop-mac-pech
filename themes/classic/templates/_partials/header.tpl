@@ -30,73 +30,53 @@
 
 {block name='header_nav'}
   <nav class="header-nav">
-    <div class="row">
-      <div class="hidden-md-up text-sm-center mobile">
-        <div class="float-xs-left" id="menu-icon">
-          <i class="material-icons d-inline">&#xE5D2;</i>
+    <div class="container">
+        <div class="row">
+          <div class="hidden-sm-down">
+            <div class="col-md-4 col-xs-12">
+              {hook h='displayNav1'}
+            </div>
+            <div class="col-md-8 right-nav">
+                {hook h='displayNav2'}
+            </div>
+          </div>
+          <div class="hidden-md-up text-sm-center mobile">
+            <div class="float-xs-left" id="menu-icon">
+              <i class="material-icons d-inline">&#xE5D2;</i>
+            </div>
+            <div class="float-xs-right" id="_mobile_cart"></div>
+            <div class="float-xs-right" id="_mobile_user_info"></div>
+            <div class="top-logo" id="_mobile_logo"></div>
+            <div class="clearfix"></div>
+          </div>
         </div>
-        <div class="float-xs-right" id="_mobile_cart"></div>
-        <div class="float-xs-right" id="_mobile_user_info"></div>
-        <div class="float-xs-left top-logo" id="_mobile_logo"></div>
-        <div class="clearfix"></div>
-      </div>
     </div>
   </nav>
 {/block}
 
 {block name='header_top'}
   <div class="header-top">
-    <div class="row">
-      <div class="col-md-4 hidden-sm-down" id="_desktop_logo">
-        <a href="{$urls.base_url}">
-          <img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}">
-        </a>
-      </div>
-      <div class="col-md-4 col-sm-12 top-title-wrapper">
-        <p class="top-title">Vente en ligne des plus grandes marques de pêche</p>
-      </div>
-      <div class="col-md-4 col-sm-12 position-static">
-        <div class="row">
-          {hook h='displayTop'}
-          <div class="clearfix"></div>
+    <div class="container">
+       <div class="row">
+        <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
+          <a href="{$urls.base_url}">
+            <img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}">
+          </a>
         </div>
-        <div class="shopping-cart-wrapper">
-          {hook h='displayHeaderShoppingCart'}
+        <div class="col-md-10 col-sm-12 position-static">
+          <div class="row">
+            {hook h='displayTop'}
+            <div class="clearfix"></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 top-gap-sm">
-        <div class="header-contact-wrapper">
-          <img class="header-contact-icon" src="{$urls.img_url}contact-user.png" alt="contact-user">
-          <span class="header-contact-detail">Bienvenue, vous pouvez vous <a class="header-login" href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">connecter</a> ou vous <a class="header-register" href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}?create_account=1">enregistrer</a></span>
+      <div id="mobile_top_menu_wrapper" class="row hidden-md-up" style="display:none;">
+        <div class="js-top-menu mobile" id="_mobile_top_menu"></div>
+        <div class="js-top-menu-bottom">
+          <div id="_mobile_currency_selector"></div>
+          <div id="_mobile_language_selector"></div>
+          <div id="_mobile_contact_link"></div>
         </div>
-        <div class="header-contact-wrapper">
-          <img class="header-contact-icon" src="{$urls.img_url}contact-phone.png" alt="contact-phone">
-          <span class="header-contact-detail">HOTLINE: <strong>05 63 00 00 00</strong></span>
-        </div>
-        <div class="header-contact-wrapper">
-          <img class="header-contact-icon" src="{$urls.img_url}contact-ship.png" alt="contact-ship">
-          <span class="header-contact-detail">Frais de port <strong>gratuit</strong> à partir de 60€</span>
-        </div>
-      </div>
-      <div class="col-md-8 sponsor-bar">
-        <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-01.png" alt="sponsor">
-        <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-02.png" alt="sponsor">
-        <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-03.png" alt="sponsor">
-        <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-04.png" alt="sponsor">
-        <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-05.png" alt="sponsor">
-        <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-06.png" alt="sponsor">
-        <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-07.png" alt="sponsor">
-        <img class="sponsor-bitmap" src="{$urls.img_url}sponsor-08.png" alt="sponsor">
-      </div>
-    </div>
-    <div id="mobile_top_menu_wrapper" class="row hidden-md-up" style="display:none;">
-      <div class="js-top-menu mobile" id="_mobile_top_menu"></div>
-      <div class="js-top-menu-bottom">
-        <div id="_mobile_currency_selector"></div>
-        <div id="_mobile_language_selector"></div>
-        <div id="_mobile_contact_link"></div>
       </div>
     </div>
   </div>

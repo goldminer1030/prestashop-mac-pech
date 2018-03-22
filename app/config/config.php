@@ -19,6 +19,7 @@
     'AdapterSecurityAdminClass' => 'PrestaShop\\PrestaShop\\Adapter\\Security\\Admin',
     'translator.class' => 'PrestaShopBundle\\Translation\\Translator',
     'translator.data_collector' => 'PrestaShopBundle\\Translation\\DataCollectorTranslator',
+    'admin_page' => '%kernel.root_dir%/../src/PrestaShopBundle/Resources/views/Admin',
   ),
   'framework' => 
   array (
@@ -42,6 +43,10 @@
     'form' => NULL,
     'csrf_protection' => NULL,
     'validation' => 
+    array (
+      'enable_annotations' => true,
+    ),
+    'serializer' => 
     array (
       'enable_annotations' => true,
     ),
@@ -96,6 +101,10 @@
     'globals' => 
     array (
       'webpack_server' => false,
+    ),
+    'paths' => 
+    array (
+      '%admin_page%/Configure/AdvancedParameters' => 'AdvancedParameters',
     ),
   ),
   'doctrine' => 
@@ -185,6 +194,10 @@
   array (
     'addons' => 
     array (
+      'prestatrust' => 
+      array (
+        'enabled' => true,
+      ),
       'api_client' => 
       array (
         'ttl' => 7200,

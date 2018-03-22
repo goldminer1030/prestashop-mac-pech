@@ -37,50 +37,48 @@
       {hook h='displayAfterBodyOpeningTag'}
     {/block}
 
-    <div class="page-wrapper">
-      <header id="header">
-        {block name='header'}
-          {include file='_partials/header.tpl'}
-        {/block}
-      </header>
-
-      {block name='notifications'}
-        {include file='_partials/notifications.tpl'}
+    <header id="header">
+      {block name='header'}
+        {include file='checkout/_partials/header.tpl'}
       {/block}
+    </header>
 
-      <div class="bg-main">
-        <section id="wrapper">
-          <div class="container">
+    {block name='notifications'}
+      {include file='_partials/notifications.tpl'}
+    {/block}
 
-          {block name='content'}
-            <section id="content">
-              <div class="row">
-                <div class="col-md-8">
-                  {block name='cart_summary'}
-                    {render file='checkout/checkout-process.tpl' ui=$checkout_process}
-                  {/block}
-                </div>
-                <div class="col-md-4">
+    <section id="wrapper">
+      {hook h="displayWrapperTop"}
+      <div class="container">
 
-                  {block name='cart_summary'}
-                    {include file='checkout/_partials/cart-summary.tpl' cart = $cart}
-                  {/block}
+      {block name='content'}
+        <section id="content">
+          <div class="row">
+            <div class="col-md-8">
+              {block name='cart_summary'}
+                {render file='checkout/checkout-process.tpl' ui=$checkout_process}
+              {/block}
+            </div>
+            <div class="col-md-4">
 
-                </div>
-              </div>
-            </section>
-          {/block}
+              {block name='cart_summary'}
+                {include file='checkout/_partials/cart-summary.tpl' cart = $cart}
+              {/block}
+
+              {hook h='displayReassurance'}
+            </div>
           </div>
-          {hook h="displayWrapperBottom"}
         </section>
-
-        <footer id="footer">
-          {block name='footer'}
-            {include file='_partials/footer.tpl'}
-          {/block}
-        </footer>
+      {/block}
       </div>
-    </div>
+      {hook h="displayWrapperBottom"}
+    </section>
+
+    <footer id="footer">
+      {block name='footer'}
+        {include file='checkout/_partials/footer.tpl'}
+      {/block}
+    </footer>
 
     {block name='javascript_bottom'}
       {include file="_partials/javascript.tpl" javascript=$javascript.bottom}
