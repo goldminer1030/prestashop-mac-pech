@@ -55,14 +55,13 @@
       <div class="container">
         <div class="bg-main">
           <section id="wrapper">
-            {hook h="displayWrapperTop"}
-            <div class="container1">
-              {block name='breadcrumb'}
-                {include file='_partials/breadcrumb.tpl'}
+            <div class="clearfix body-container">
+              {block name='wrapper_top'}
+                {hook h="displayWrapperTop"}
               {/block}
 
               {block name="left_column"}
-                <div id="left-column" class="col-xs-12 col-sm-4 col-md-3">
+                <div id="left-column" class="col-lg-3 no-left-padding-lg">
                   {if $page.page_name == 'product'}
                     {hook h='displayLeftColumnProduct'}
                   {else}
@@ -72,7 +71,7 @@
               {/block}
 
               {block name="content_wrapper"}
-                <div id="content-wrapper" class="left-column right-column col-sm-4 col-md-6">
+                <div id="content-wrapper" class="left-column right-column col-lg-6">
                   {hook h="displayContentWrapperTop"}
                   {block name="content"}
                     <p>Hello world! This is HTML5 Boilerplate.</p>
@@ -82,7 +81,7 @@
               {/block}
 
               {block name="right_column"}
-                <div id="right-column" class="col-xs-12 col-sm-4 col-md-3">
+                <div id="right-column" class="col-lg-3 no-right-padding-lg">
                   {if $page.page_name == 'product'}
                     {hook h='displayRightColumnProduct'}
                   {else}

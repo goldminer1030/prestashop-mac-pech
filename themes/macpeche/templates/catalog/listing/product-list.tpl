@@ -27,18 +27,8 @@
 {block name='content'}
   <section id="main">
 
-    {block name='product_list_header'}
-      <h2 class="h2">{$listing.label}</h2>
-    {/block}
-
     <section id="products">
       {if $listing.products|count}
-
-        <div id="">
-          {block name='product_list_top'}
-            {include file='catalog/_partials/products-top.tpl' listing=$listing}
-          {/block}
-        </div>
 
         {block name='product_list_active_filters'}
           <div id="" class="hidden-sm-down">

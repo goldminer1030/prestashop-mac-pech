@@ -24,11 +24,33 @@
  *}
 <div id="js-product-list">
   <div class="products row">
+    {if $manufacturers|count > 0}
+    <div class="col-lg-3 col-sm-12 col-xs-12 no-right-padding-lg">
+      <div id="search_filters">
+        <h4 class="filter-by-brand-title text-center text-uppercase">filtrer<br>par marque</h4>
+          <ul id="filter-by-brand-block">
+            {foreach from=$manufacturers item=manufacturer}
+              <li class="filter-by-brand">
+                <div class="filter-wrapper">
+                  <a class="brand-img" href="" data-brand-id="{$manufacturer.id_manufacturer}"><img src="{$manufacturer.image}" title="{$manufacturer.name|escape:'html':'UTF-8'}" alt="{$manufacturer.name|escape:'html':'UTF-8'}"/></a>
+                  <a class="brand-name" href="" data-brand-id="{$manufacturer.id_manufacturer}">{$manufacturer.name|escape:'html':'UTF-8'}</a>
+                </div>
+              </li>
+            {/foreach}
+          </ul>
+      </div>
+    </div>
+    <div class="col-lg-9 col-sm-12 col-xs-12">
+    {hook h='displayProductSubCategories'}
+    {/if}
     {foreach from=$listing.products item="product"}
       {block name='product_miniature'}
         {include file='catalog/_partials/miniatures/product.tpl' product=$product}
       {/block}
     {/foreach}
+    {if $manufacturers|count > 0}
+    </div>
+    {/if}
   </div>
 
   {block name='pagination'}
