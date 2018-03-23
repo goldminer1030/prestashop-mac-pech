@@ -524,6 +524,9 @@ body#checkout #header .header-nav {
   width: 258px;
   max-width: 100%;
 }
+#footer {
+  padding-top: 10px;
+}
 
 .banner-wrapper {
   position: relative;
