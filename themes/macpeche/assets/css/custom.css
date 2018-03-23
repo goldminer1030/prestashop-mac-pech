@@ -144,6 +144,9 @@ li.product-flag {
 .input-group.focus {
   outline-color: #1d9d50;
 }
+.search-widget form input[type=text] {
+  min-width: auto;
+}
 .form-control:focus {
   border-color: #1d9d50;
 }
@@ -235,6 +238,7 @@ body#checkout section.checkout-step .delivery-option {
   padding: 15px;
 }
 #pagenotfound .page-not-found,
+#product .page-not-found,
 #products .page-not-found {
   background: transparent;
   text-align: center;
@@ -513,7 +517,7 @@ body#checkout #header .header-nav {
   text-align: center;
 }
 .payment-methods {
-  margin: 15px;
+  margin: 15px 0;
   max-width: 100%;
 }
 .footer-logo {
@@ -1055,6 +1059,7 @@ body#checkout #header .header-nav {
   color: #fff146;
 }
 .block-categories {
+  margin-right: -5px;
   padding: 0;
   box-shadow: none;
   background: transparent;
@@ -1387,7 +1392,10 @@ body#checkout #header .header-nav {
     padding-right: 15px;
   }
   .bg-main {
-    padding: 7px 20px 10px 20px;
+    padding: 0 20px 10px 20px;
+  }
+  .search-widget form input[type=text] {
+    min-width: 255px;
   }
   .page-wrapper {
     width: 100%;
@@ -1403,9 +1411,6 @@ body#checkout #header .header-nav {
   .block-categories .category-sub-menu li[data-depth="0"] > a {
     line-height: 1.4;
     font-size: 15px;
-  }
-  .product-quantity {
-    display: flex;
   }
   .tabs .nav-tabs .nav-item {
     float: left;
@@ -1536,9 +1541,6 @@ body#checkout #header .header-nav {
     width: 50%;
     float: left;
   }
-  .product-quantity {
-    display: block;
-  }
   .header-top .search-widget {
     padding: 0 15px 15px 15px;
   }
@@ -1548,6 +1550,10 @@ body#checkout #header .header-nav {
   .top-link-bar.main-domain .top-link-wrapper .top-link-image,
   .top-link-bar.sub-domain .top-link-wrapper .top-link-image {
     display: block;
+  }
+  .gm_products,
+  .gm_promotion {
+    min-height: 120px;
   }
 }
 @media (min-width: 992px) {
@@ -1654,6 +1660,9 @@ body#checkout #header .header-nav {
     margin-top: 0;
     padding-right: 8px;
   }
+  .block-categories {
+    padding-left: 5px;
+  }
 }
 @media (min-width: 1200px) {
   #header {
@@ -1742,7 +1751,7 @@ body#checkout #header .header-nav {
     font-size: 17px;
   }
   .product-content-container {
-    padding: 35px;
+    padding: 30px;
   }
   .product-content-container .h1 {
     padding-bottom: 20px;

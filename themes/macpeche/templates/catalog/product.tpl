@@ -75,7 +75,7 @@
           </section>
         {/block}
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 no-left-padding-lg">
         <div class="product-content-container">
           {block name='page_header_container'}
             {block name='page_header'}
