@@ -22,18 +22,17 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-  <div id="search_filters">
-    {if $manufacturers|count > 0}
-      <h4 class="filter-by-brand-title text-center text-uppercase">filtrer<br>par marque</h4>
-      <ul id="filter-by-brand-block">
-        {foreach from=$manufacturers item=manufacturer}
-          <li class="filter-by-brand">
-            <div class="filter-wrapper">
-              <a class="brand-img" href="" data-brand-id="{$manufacturer.id_manufacturer}"><img src="{$manufacturer.image}" title="{$manufacturer.name|escape:'html':'UTF-8'}" alt="{$manufacturer.name|escape:'html':'UTF-8'}"/></a>
-              <a class="brand-name" href="" data-brand-id="{$manufacturer.id_manufacturer}">{$manufacturer.name|escape:'html':'UTF-8'}</a>
-            </div>
-          </li>
-        {/foreach}
-      </ul>
-    {/if}
-  </div>
+
+<div id="search_filters_wrapper">
+  <h4 class="filter-by-brand-title text-center text-uppercase">filtrer<br>par marque</h4>
+  <ul id="filter-by-brand-block">
+    {foreach from=$manufacturers item=manufacturer}
+      <li class="filter-by-brand">
+        <div class="filter-wrapper">
+          <a class="brand-img" href="" data-brand-id="{$manufacturer.id_manufacturer}"><img src="{$manufacturer.image}" title="{$manufacturer.name|escape:'html':'UTF-8'}" alt="{$manufacturer.name|escape:'html':'UTF-8'}"/></a>
+          <a class="brand-name" href="" data-brand-id="{$manufacturer.id_manufacturer}">{$manufacturer.name|escape:'html':'UTF-8'}</a>
+        </div>
+      </li>
+    {/foreach}
+  </ul>
+</div>

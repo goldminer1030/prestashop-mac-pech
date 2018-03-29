@@ -1033,13 +1033,16 @@ body#checkout #header .header-nav {
   box-shadow: none;
 }
 
-#search_filters,
+#search_filters_wrapper,
 #search_filters_brands,
 #search_filters_suppliers {
   padding-bottom: 5px;
   box-shadow: none;
   background-color: #fbfbfb;
   border: solid 3px #aebdba;
+}
+#search_filters_wrapper {
+  padding: 15px;
 }
 #wrapper .breadcrumb[data-depth="1"] {
   display: block !important;
