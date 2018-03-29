@@ -11,6 +11,7 @@
     $(".products .filter-wrapper a").click(function (e) {
       e.preventDefault();
       var brand = $(this).data('brand-id');
+      console.log('brand id: ' + brand);
       $('.products .product-miniature').hide();
       $('.products [data-brand-id="' + brand + '"]').show();
     });

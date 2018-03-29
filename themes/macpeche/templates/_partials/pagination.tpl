@@ -32,7 +32,7 @@
   <div class="col-md-6 offset-md-2 pr-0">
     {block name='pagination_page_list'}
      {if $pagination.should_be_displayed}
-        <ul class="page-list clearfix text-sm-center">
+        <ul class="page-list clearfix text-center">
           {foreach from=$pagination.pages item="page"}
           
             <li {if $page.current} class="current" {/if}>

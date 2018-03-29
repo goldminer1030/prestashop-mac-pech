@@ -29,23 +29,47 @@
 
     <section id="products">
       {if $listing.products|count}
-
-        {block name='product_list_active_filters'}
-          <div id="" class="hidden-sm-down">
-            {$listing.rendered_active_filters nofilter}
+        <div class="products row">
+          {if $manufacturers|count > 0}
+          <div class="col-lg-3 col-sm-12 col-xs-12 no-right-padding-lg">
+            <div id="search_filters">
+              <h4 class="filter-by-brand-title text-center text-uppercase">filtrer<br>par marque</h4>
+                <ul id="filter-by-brand-block">
+                  {foreach from=$manufacturers item=manufacturer}
+                    <li class="filter-by-brand">
+                      <div class="filter-wrapper">
+                        <a class="brand-img" href="" data-brand-id="{$manufacturer.id_manufacturer}"><img src="{$manufacturer.image}" title="{$manufacturer.name|escape:'html':'UTF-8'}" alt="{$manufacturer.name|escape:'html':'UTF-8'}"/></a>
+                        <a class="brand-name" href="" data-brand-id="{$manufacturer.id_manufacturer}">{$manufacturer.name|escape:'html':'UTF-8'}</a>
+                      </div>
+                    </li>
+                  {/foreach}
+                </ul>
+            </div>
           </div>
-        {/block}
+          <div class="col-lg-9 col-sm-12 col-xs-12">
+          {hook h='displayProductSubCategories'}
+          {/if}
 
-        <div id="">
-          {block name='product_list'}
-            {include file='catalog/_partials/products.tpl' listing=$listing}
+          {block name='product_list_active_filters'}
+            <div id="" class="hidden-sm-down">
+              {$listing.rendered_active_filters nofilter}
+            </div>
           {/block}
-        </div>
 
-        <div id="js-product-list-bottom">
-          {block name='product_list_bottom'}
-            {include file='catalog/_partials/products-bottom.tpl' listing=$listing}
-          {/block}
+          <div id="">
+            {block name='product_list'}
+              {include file='catalog/_partials/products.tpl' listing=$listing}
+            {/block}
+          </div>
+
+          <div id="js-product-list-bottom">
+            {block name='product_list_bottom'}
+              {include file='catalog/_partials/products-bottom.tpl' listing=$listing}
+            {/block}
+          </div>
+          {if $manufacturers|count > 0}
+          </div>
+          {/if}
         </div>
 
       {else}
